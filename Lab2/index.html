@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Lab2</title>
+</head>
+
+<body class="body">
+    <header class="header container">
+        <div class="top-header">
+            <div class="logo"><span>Teachinder</span></div>
+            <div class="search">
+                <form id="search-form">
+                    <input type="text" class="search-input" placeholder="Name, note or age to search">
+                    <button class="main-btn header-btn" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+        <div class="bottom-header">
+            <nav class="nav">
+                <ul class="menu">
+                    <li class="menu-item"><a href="#" class="menu-link">Teachers</a></li>
+                    <li class="menu-item"><a href="#" class="menu-link">Statistics</a></li>
+                    <li class="menu-item"><a href="#" class="menu-link">Favorites</a></li>
+                    <li class="menu-item"><a href="#" class="menu-link">About</a></li>
+                </ul>
+            </nav>
+            <button class="main-btn ">Add teacher</button>
+        </div>
+    </header>
+    <main class="main container">
+        <div class="top-teachers">
+            <hr class="block-line">
+            <h2 class="block-title">Top Teachers</h2>
+            <div class="filter">
+                <div class="filter-block">
+                    <form>
+                        <div class="filters">
+                            <div class="select-block">
+                                <label for="age" class="form-label">Age</label>
+                                <select name="age" id="age" class="select">
+                                    <option value="0-18">0-18</option>
+                                    <option value="18-31">18-31</option>
+                                    <option value="31-56">31-56</option>
+                                    <option value="56-70">56-70</option>
+                                </select>
+                            </div>
+                            <div class="select-block">
+                                <label for="region" class="form-label">Region</label>
+                                <select name="region" id="region" class="select">
+                                    <option value="America">America</option>
+                                    <option value="Europe">Europe</option>
+                                    <option value="Asia">Asia</option>
+                                    <option value="Australia">Australia</option>
+                                </select>
+                            </div>
+                            <div class="select-block">
+                                <label for="sex" class="form-label">Sex</label>
+                                <select name="sex" id="sex" class="select">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                            <div class="select-block">
+                                <input type="checkbox" name="photo" id="photo-chkbox">
+                                <label for="photo-chkbox" class="form-label">Only with photo</label>
+                            </div>
+                            <div class="select-block">
+                                <input type="checkbox" name="favorites" id="favorites-chkbox">
+                                <label for="favorites-chkbox" class="form-label">Only favorites</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="flash-cards grid">
+                <section class="card">
+                    <div class="person-img-cover">
+                        <img src="img/img1.jpg" alt="image of person" class="person-img">
+                    </div>
+                    <img src="icons/star.png" alt="star" class="fav-star">
+                    <div class="card-header">
+                        <h3 class="card-name">
+                            <span class="name-spn">Ihor</span>
+                            <span class="name-spn">Tkachuk</span>
+                        </h3>
+                        <p class="card-field">Chemistry</p>
+                        <p class="card-country">Ukraine</p>
+                    </div>
+                </section>
+                <section class="card">
+                    <div class="person-img-cover">
+                        <img src="img/img2.jpg" alt="image of person" class="person-img">
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-name">
+                            <span class="name-spn">Pragg</span>
+                            <span class="name-spn">Ramenshababy</span>
+                        </h3>
+                        <p class="card-field">Chess</p>
+                        <p class="card-country">India</p>
+                    </div>
+                </section>
+                <section class="card">
+                    <div class="person-img-cover">
+                        <img src="img/img3.jpg" alt="image of person" class="person-img">
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-name">
+                            <span class="name-spn">Floor</span>
+                            <span class="name-spn">Jansen</span>
+                        </h3>
+                        <p class="card-field">Vocal</p>
+                        <p class="card-country">Denmakr</p>
+                    </div>
+                </section>
+                <section class="card">
+                    <div class="person-img-cover">
+                        <img src="img/img4.jpg" alt="image of person" class="person-img">
+                    </div>
+                    <img src="icons/star.png" alt="star" class="fav-star">
+                    <div class="card-header">
+                        <h3 class="card-name">
+                            <span class="name-spn">John</span>
+                            <span class="name-spn">Burke</span>
+                        </h3>
+                        <p class="card-field">Computer science</p>
+                        <p class="card-country">Belgium</p>
+                    </div>
+                </section>
+                <section class="card">
+                    <div class="person-img-cover">
+                        <img src="img/img5.jpg" alt="image of person" class="person-img">
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-name">
+                            <span class="name-spn">Ari</span>
+                            <span class="name-spn">Tang</span>
+                        </h3>
+                        <p class="card-field">Biology</p>
+                        <p class="card-country">China</p>
+                    </div>
+                </section>
+                <section class="card">
+                    <div class="person-img-cover">
+                        <img src="img/img6.jpg" alt="image of person" class="person-img">
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-name">
+                            <span class="name-spn">Rachel</span>
+                            <span class="name-spn">Andrew</span>
+                        </h3>
+                        <p class="card-field">Medicine</p>
+                        <p class="card-country">UK</p>
+                    </div>
+                </section>
+                <section class="card">
+                    <div class="person-img-cover">
+                        <div class="person-img">
+                            <div class="person-initials">K.B</div>
+                        </div>
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-name">
+                            <span class="name-spn">Kurva</span>
+                            <span class="name-spn">Bober</span>
+                        </h3>
+                        <p class="card-field">Physics</p>
+                        <p class="card-country">Poland</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="statistics">
+            <hr class="block-line">
+            <h2 class="block-title">Statistics</h2>
+            <section class="statistics-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Speciality</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Nationality</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Daisy Alexander</td>
+                            <td>Chemistry</td>
+                            <td>28</td>
+                            <td>Female</td>
+                            <td>Vietnam</td>
+                        </tr>
+                        <tr>
+                            <td>Julia Bradley</td>
+                            <td>Math</td>
+                            <td>26</td>
+                            <td>Female</td>
+                            <td>USA</td>
+                        </tr>
+                        <tr>
+                            <td>Rita Hart</td>
+                            <td>Art</td>
+                            <td>41</td>
+                            <td>Female</td>
+                            <td>Ireland</td>
+                        </tr>
+                        <tr>
+                            <td>Jonathan Jacobs</td>
+                            <td>Math</td>
+                            <td>32</td>
+                            <td>Male</td>
+                            <td>England</td>
+                        </tr>
+                        <tr>
+                            <td>Daisy Alexander</td>
+                            <td>Chemistry</td>
+                            <td>28</td>
+                            <td>Female</td>
+                            <td>Vietnam</td>
+                        </tr>
+                        <tr>
+                            <td>Julia Bradley</td>
+                            <td>Math</td>
+                            <td>26</td>
+                            <td>Female</td>
+                            <td>USA</td>
+                        </tr>
+                        <tr>
+                            <td>Rita Hart</td>
+                            <td>Art</td>
+                            <td>41</td>
+                            <td>Female</td>
+                            <td>Ireland</td>
+                        </tr>
+                        <tr>
+                            <td>Jonathan Jacobs</td>
+                            <td>Math</td>
+                            <td>32</td>
+                            <td>Male</td>
+                            <td>England</td>
+                        </tr>
+                        <tr>
+                            <td>Daisy Alexander</td>
+                            <td>Chemistry</td>
+                            <td>28</td>
+                            <td>Female</td>
+                            <td>Vietnam</td>
+                        </tr>
+                        <tr>
+                            <td>Julia Bradley</td>
+                            <td>Math</td>
+                            <td>26</td>
+                            <td>Female</td>
+                            <td>USA</td>
+                        </tr>
+                        <tr>
+                            <td>Rita Hart</td>
+                            <td>Art</td>
+                            <td>41</td>
+                            <td>Female</td>
+                            <td>Ireland</td>
+                        </tr>
+                        <tr>
+                            <td>Jonathan Jacobs</td>
+                            <td>Math</td>
+                            <td>32</td>
+                            <td>Male</td>
+                            <td>England</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <a href="#" class="page active">1</a>
+                    <a href="#" class="page">2</a>
+                    <a href="#" class="page">3</a>
+                    <span class="page">...</span>
+                    <a href="#" class="page">Last</a>
+                </div>
+            </section>
+        </div>
+        <div class="favorites">
+            <hr class="block-line">
+            <h2 class="block-title">Favorites</h2>
+            <div class="favorite-cards">
+                <section class="card">
+                    <div class="person-img-cover">
+                        <img src="img/img1.jpg" alt="image of person" class="person-img">
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-name">
+                            <span class="name-spn">Ihor</span>
+                            <span class="name-spn">Tkachuk</span>
+                        </h3>
+                        <p class="card-country">Ukraine</p>
+                    </div>
+                </section>
+                <section class="card">
+                    <div class="person-img-cover">
+                        <img src="img/img2.jpg" alt="image of person" class="person-img">
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-name">
+                            <span class="name-spn">Pragg</span>
+                            <span class="name-spn">Ramenshababy</span>
+                        </h3>
+                        <p class="card-country">India</p>
+                    </div>
+                </section>
+                <section class="card">
+                    <div class="person-img-cover">
+                        <img src="img/img3.jpg" alt="image of person" class="person-img">
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-name">
+                            <span class="name-spn">Floor</span>
+                            <span class="name-spn">Jansen</span>
+                        </h3>
+                        <p class="card-country">Denmakr</p>
+                    </div>
+                </section>
+                <section class="card">
+                    <div class="person-img-cover">
+                        <img src="img/img4.jpg" alt="image of person" class="person-img">
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-name">
+                            <span class="name-spn">John</span>
+                            <span class="name-spn">Burke</span>
+                        </h3>
+                        <p class="card-country">Belgium</p>
+                    </div>
+                </section>
+                <section class="card">
+                    <div class="person-img-cover">
+                        <img src="img/img5.jpg" alt="image of person" class="person-img">
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-name">
+                            <span class="name-spn">Ari</span>
+                            <span class="name-spn">Tang</span>
+                        </h3>
+                        <p class="card-country">China</p>
+                    </div>
+                </section>
+            </div>
+            <img src="icons/forward-arrow.png" alt="arrow" class="arrow forward">
+            <img src="icons/back-arrow.png" alt="arrow" class="arrow back">
+        </div>
+    </main>
+    <footer class="footer container">
+        <hr class="block-line">
+        <div class="info">
+            <p class="footer-info">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, blanditiis
+                atque temporibus hic ipsum sint porro a! Omnis dignissimos recusandae tenetur
+                error hic ipsam veritatis nam itaque cumque ex necessitatibus architecto officiis
+                perspiciatis eius exercitationem, cum atque quis odio, pariatur consequuntur libero
+                expedita perferendis vitae aperiam. Sed nulla ipsum nostrum?
+            </p>
+            <p class="footer-info">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Harum voluptatibus, id quod recusandae repellendus deleniti.
+            </p>
+            <p class="footer-info">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, culpa.
+            </p>
+        </div>
+        <div class="bottom-header">
+            <nav class="nav">
+                <ul class="menu">
+                    <li class="menu-item"><a href="#" class="menu-link">Teachers</a></li>
+                    <li class="menu-item"><a href="#" class="menu-link">Statistics</a></li>
+                    <li class="menu-item"><a href="#" class="menu-link">Favorites</a></li>
+                    <li class="menu-item"><a href="#" class="menu-link">About</a></li>
+                </ul>
+            </nav>
+            <button class="main-btn ">Add teacher</button>
+        </div>
+    </footer>
+    <div class="modal">
+        <div id="add-teacher-modal" class="add-teacher-form modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">Add Teacher</h3>
+                <button class="modal-close-btn">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <div class="modal-main">
+                <form>
+                    <div class="modal-input">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" placeholder="Enter name">
+                    </div>
+                    <div class="modal-input">
+                        <label for="speciality" class="form-label">Speciality</label>
+                        <select name="" id="speciality">
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="English">English</option>
+                            <option value="Chemistry">Chemistry</option>
+                        </select>
+                    </div>
+                    <div class="modal-input-grid">
+                        <div class="modal-input">
+                            <label for="country" class="form-label">Country</label>
+                            <select name="" id="country">
+                                <option value="Ukraine">Ukraine</option>
+                                <option value="USA">USA</option>
+                                <option value="Germany">Germany</option>
+                                <option value="Poland">Poland</option>
+                            </select>
+                        </div>
+                        <div class="modal-input">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" id="city">
+                        </div>
+                        <div class="modal-input">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email">
+                        </div>
+                        <div class="modal-input">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" id="phone">
+                        </div>
+                        <div class="modal-input">
+                            <label for="birth" class="form-label">Date of birth</label>
+                            <input type="date" id="birth">
+                        </div>
+                    </div>
+                    <div class="modal-input single-line-input">
+                        <span class="form-label">Gender</span>
+                        <label for="sex" class="form-label">Male</label>
+                        <input type="radio" id="sex" name="sex" value="Male">
+                        <label for="sex" class="form-label">Female</label>
+                        <input type="radio" id="sex" name="sex" value="Female">
+                    </div>
+                    <div class="modal-input single-line-input">
+                        <label for="color" class="form-label">Background color</label>
+                        <input type="color" id="color">
+                    </div>
+                    <div class="modal-input">
+                        <label for="comment" class="form-label">Notes (optional)</label>
+                        <textarea id="comment"></textarea>
+                    </div>
+                    <button type="submit" class="main-btn modal-btn">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
