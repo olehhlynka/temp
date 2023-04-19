@@ -353,12 +353,23 @@ table td:first-child, th:first-child {
     align-items: center;
 }
 
+.is-open {
+    visibility: visible;
+}
+
 .modal-dialog {
-    min-width: 500px;
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 0 7px 15px 1px rgb(70, 69, 71);
     overflow: hidden;
+}
+
+.add-teacher-form {
+    min-width: 500px;
+}
+
+.teacher-info-modal {
+    max-width: 700px;
 }
 
 .material-icons {
@@ -438,4 +449,90 @@ table td:first-child, th:first-child {
 .modal-btn {
     margin-top: 20px;
     width: 100%;
+}
+
+.info-text {
+    font-size: 14px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.teacher-photo {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.teacher-info {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.speciality {
+    font-size: 18px;    
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.email {
+    color:rgb(27, 149, 255);
+}
+
+.teacher-main-info {
+    margin-left: 30px;
+}
+
+.toggle-btn {
+    margin-top: 10px;
+    display: block;
+    color:rgb(27, 149, 255);
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+    font-size: 14px;
+    text-decoration: underline dotted;
+    text-underline-offset: 8px;
+    cursor: pointer;
+}
+
+.map {
+    width: 100%;
+    height: 200px;
+    border:0;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: auto auto auto auto;
+    }
+
+    .form-label {
+        margin: 0 3px 0 0;
+    }
+
+    .favorite-cards {
+        justify-content: space-around;
+    }
+
+    .favorite-cards .card:last-child{
+        display: none;
+    }
+
+    .forward {
+        right: -35px;
+    }
+
+    .back {
+        left: -35px;
+    }
+
+    .modal-dialog {
+        scale: 0.7;
+    }
 }

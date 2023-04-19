@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="js/script.js" defer></script>
     <title>Lab2</title>
 </head>
 
@@ -30,7 +31,7 @@
                     <li class="menu-item"><a href="#" class="menu-link">About</a></li>
                 </ul>
             </nav>
-            <button class="main-btn ">Add teacher</button>
+            <button class="main-btn add-teacher-btn">Add teacher</button>
         </div>
     </header>
     <main class="main container">
@@ -382,11 +383,11 @@
                     <li class="menu-item"><a href="#" class="menu-link">About</a></li>
                 </ul>
             </nav>
-            <button class="main-btn ">Add teacher</button>
+            <button class="main-btn add-teacher-btn">Add teacher</button>
         </div>
     </footer>
-    <div class="modal">
-        <div id="add-teacher-modal" class="add-teacher-form modal-dialog">
+    <div class="modal" id="add-teacher-modal">
+        <div class="add-teacher-form modal-dialog">
             <div class="modal-header">
                 <h3 class="modal-title">Add Teacher</h3>
                 <button class="modal-close-btn">
@@ -455,6 +456,43 @@
             </div>
         </div>
     </div>
+    <div class="modal" id="teacher-info-modal">
+        <div class="teacher-info-modal modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">Teacher Info</h3>
+                <button class="modal-close-btn">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <div class="modal-main">
+                <div class="teacher-info">
+                    <div class="teacher-photo-wrapper">
+                        <img src="img/img1.jpg" alt="Teacher photo" class="teacher-photo">
+                    </div>
+                    <div class="teacher-main-info">
+                        <p class="info-text title">Ihor Tkachuk</p>
+                        <p class="info-text speciality">Chemistry</p>
+                        <p class="info-text">Kyiv, Ukraine</p>
+                        <p class="info-text">35, Male</p>
+                        <p class="info-text email">ihor_tkachuk@gmail.com</p>
+                        <p class="info-text">+380564875345</p>
+                    </div>
+                </div>
+                <p class="info-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, commodi nobis.
+                    Odit accusamus
+                    laudantium impedit consectetur ipsam? Minima ducimus, laborum qui repudiandae harum magni quis
+                    repellendus cupiditate repellat saepe, voluptate reprehenderit ipsum eos quos enim? Placeat
+                    delectus, rerum minus error facere exercitationem, quod laudantium harum nam perspiciatis, vero
+                    eum perferendis!
+                </p>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d374043.99609831505!2d-97.24514935149983!3d42.910427973729476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x878fa9588b830845%3A0x8846bc48201b605d!2zR2F5dmlsbGUsINCf0ZbQstC00LXQvdC90LAg0JTQsNC60L7RgtCwIDU3MDMxLCDQodC_0L7Qu9GD0YfQtdC90ZYg0KjRgtCw0YLQuCDQkNC80LXRgNC40LrQuA!5e0!3m2!1suk!2sua!4v1679297121622!5m2!1suk!2sua"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+                <button class="toggle-btn">toggle map</button>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
