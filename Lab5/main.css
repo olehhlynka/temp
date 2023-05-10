@@ -1,0 +1,422 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-left: 72px;
+  gap: 20px;
+}
+
+.favorites-flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-left: 12px;
+}
+
+.favorites-flex-item {
+  margin-left: 148px;
+}
+
+.favorites-first-flex-item {
+  cursor: pointer;
+  margin-left: 125px;
+}
+
+.favorites-h1 {
+  font-size: 30px;
+}
+
+.favorites-p-first {
+  font-size: 20px;
+  color: grey;
+}
+
+.favorites-p-second {
+  font-size: 12px;
+}
+
+.teachinder {
+  font-size: 48px;
+  color: #FF5733;
+}
+
+.toptextinput {
+  margin-left: auto;
+  height: 48px;
+  margin-top: 32px;
+  margin-right: 72px;
+}
+
+.topbuttonsearch {
+  margin-left: 20px;
+  height: 50px;
+  width: 150px;
+  margin-top: 30px;
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  border-color: #FF5733;
+  color: #FF5733;
+  margin-right: 72px;
+}
+
+.topbuttonsearch:hover {
+  background-color: #FF5733;
+  color: white;
+}
+
+.toptextbutton {
+  color: #FF5733;
+  border: 0px solid black;
+  background-color: white;
+  font-size: 24px;
+  font-family: Sans Serif;
+  cursor: pointer;
+  align-content: left;
+}
+
+.top-normal-button {
+  margin-left: auto;
+  height: 80px;
+  width: 210px;
+  margin-top: 8px;
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  font-size: 24px;
+  cursor: pointer;
+  border-color: #FF5733;
+  color: #FF5733;
+  margin-right: 72px;
+}
+
+.popup-add-button {
+  margin-left: auto;
+  height: 80px;
+  width: 430px;
+  margin-top: 30px;
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  font-size: 24px;
+  cursor: pointer;
+  border-color: #FF5733;
+  color: #FF5733;
+  margin-right: 72px;
+}
+
+.popup-add-button:hover {
+  background-color: #FF5733;
+  color: white;
+}
+
+.top-normal-button:hover {
+  background-color: #FF5733;
+  color: white;
+}
+
+hr {
+  margin-left: 30%;
+  margin-right: 30%;
+  border: solid 1px grey;
+}
+
+.vl {
+  border-right: 1px dotted grey;
+  height: 30px;
+  float: right;
+  margin-left: 15px;
+}
+
+.filter-block {
+  margin-left: 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  padding: 20px;
+  grid-gap: 20px;
+}
+
+.grid-item {
+  padding: 35px;
+  font-size: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.teachers-grid-item {
+  padding: 35px;
+  font-size: 30px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.teachers-div-relative {
+  position: absolute;
+  top: 30px;
+  right: 80px;
+  visibility: hidden;
+}
+
+.img-favorites-orange {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border: 3px solid #FF5733;
+}
+
+.img-teachers-orange {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border: 3px solid #FF5733;
+}
+
+.teachers-h1 {
+  font-size: 30px;
+}
+
+.teachers-p-first {
+  font-size: 20px;
+  color: grey;
+}
+
+.teachers-p-second {
+  font-size: 12px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 92%;
+  margin-left: 72px;
+  margin-right: 72px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+.center-th-td {
+  text-align: center;
+}
+
+tr:nth-child(2n+1) {
+  background-color: lightgray;
+}
+
+tr:first-child {
+  border-bottom: 2px solid #555;
+}
+
+.statistics-arrow {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  visibility: hidden;
+}
+
+.under-statistics-button {
+  border: 0px;
+  color: #0096FF;
+  background-color: white;
+  cursor: pointer;
+  width: 24px;
+  height: 36px;
+}
+
+.three-points {
+  border: 0px;
+  color: black;
+  background-color: white;
+  width: 24px;
+  height: 36px;
+}
+
+.arrows {
+  width: 36px;
+  height: 36px;
+  border-color: #000;
+}
+
+.prev {
+  border-bottom: 6px solid;
+  border-left: 6px solid;
+  transform: rotate(45deg);
+  left: 10px;
+  margin-right: auto;
+  margin-left: 16px;
+  margin-top: 114px;
+  float: right;
+}
+
+.next {
+  border-bottom: 6px solid;
+  border-left: 6px solid;
+  transform: rotate(-135deg);
+  right: 10px;
+  margin-left: auto;
+  margin-right: 16px;
+  margin-top: 114px;
+  float: left;
+}
+
+.bottom-text {
+  color: grey;
+  margin-left: 80px;
+  margin-right: 72px;
+  font-size: 18px;
+}
+
+/* The popup form - hidden by default */
+.form-add-popup {
+  display: none;
+  bottom: 0;
+  right: 50px;
+  width: 500px;
+  z-index: 12;
+  position: fixed;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.add-main {
+  margin-left: 30px;
+  margin-top: 19px;
+}
+
+.add-article {
+  margin-top: 10px;
+}
+
+.form-more-popup {
+  display: none;
+  bottom: 0;
+  right: 50px;
+  width: 500px;
+  z-index: 12;
+  position: fixed;
+  top: 50%;
+  left: 41%;
+  transform: translate(-50%, -50%);
+}
+
+/* Add styles to the form container */
+.form-more-container {
+  width: 800px;
+  height: 510px;
+  background-color: white;
+  margin: 0px;
+  padding: 0px;
+}
+
+.form-add-container {
+  width: 500px;
+  height: 850px;
+  background-color: white;
+  margin: 0px;
+  padding: 0px;
+}
+
+.add-header {
+  display: flex;
+  background-color: #454545;
+  color: white;
+  font-size: 12px;
+  height: 55px;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+.notpopup {
+  display: none;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.more-header {
+  display: flex;
+  background-color: #454545;
+  color: white;
+  font-size: 12px;
+  height: 40px;
+}
+
+.more-img {
+  width: 300px;
+  height: 300px;
+  float: left;
+  padding-right: 26px;
+}
+
+.more-main {
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+.more-flex {
+  display: flex;
+  flex: 0 0 75em;
+}
+
+.add-flex {
+  display: flex;
+}
+
+/* Add a red background color to the cancel button */
+.cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.btn:hover {
+  opacity: 1;
+}
+
+@media only screen and (max-width: 600px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 20px;
+    grid-gap: 20px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .favorites-flex-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 20px;
+    grid-gap: 20px;
+    float: right;
+    float: left;
+  }
+  .favorites-flex-item {
+    margin-left: 48px;
+  }
+} /*# sourceMappingURL=main.css.map */

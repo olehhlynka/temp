@@ -1,0 +1,56 @@
+{
+  "users": [
+    {
+      "gender": "male",
+      "title": "Mr",
+      "full_name": "Darren Wood",
+      "city": "Surrey",
+      "state": "Alabama",
+      "country": "United States",
+      "postcode": 52941,
+      "coordinates": {
+        "latitude": "79.5827",
+        "longitude": "164.6189"
+      },
+      "timezone": {
+        "offset": "-9:00",
+        "description": "Alaska"
+      },
+      "email": "darren.wood@example.com",
+      "b_date": "1974-11-15T10:40:20.306Z",
+      "age": 47,
+      "phone": "(720)-981-1014",
+      "picture_large": "https://randomuser.me/api/portraits/men/68.jpg",
+      "picture_thumbnail": "https://randomuser.me/api/portraits/thumb/men/68.jpg",
+      "id": "SSN769-88-9330",
+      "favorite": "Tfgdgdb Tfcvad",
+      "course": "Chemistry",
+      "bg_color": "#86CF1D",
+      "note": "hello"
+    },
+    {
+      "gender": "male",
+      "title": "",
+      "full_name": "gfgdgdg",
+      "city": "eteegeg",
+      "country": "Ukraine",
+      "postcode": "",
+      "coordinates": {
+        "latitude": "",
+        "longitude": ""
+      },
+      "timezone": {
+        "offset": "",
+        "description": ""
+      },
+      "b_day": "2017-06-06",
+      "age": 5,
+      "id": "j5FrisL2Cg",
+      "picture_large": "https://randomuser.me/api/portraits/men/0.jpg",
+      "favorite": "",
+      "course": "Mathematics",
+      "bg_color": "#000000",
+      "note": ""
+    }
+  ]
+}
