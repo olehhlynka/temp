@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
   <title>Lab5</title>
   <meta charset="UTF-8">
@@ -10,438 +11,534 @@
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
+
 <body>
-  <script type="module" src="main.js"></script>
-  <script type="module" src="Lab5Mock.js"></script>
-  <header>
-    <div class="flex-container">
-      <h1 class = "teachinder">Teachinder</h1>
-      <input type="text" placeholder="Name, note or age to search" class="toptextinput" size="25" onchange = "searchOnChange()" id = "teacher-search">
-      <button type="button" class="topbuttonsearch">Search</button>
-    </div>
-    <nav>
+  <div class="container">
+    <script type="module" src="main.js"></script>
+    <script type="module" src="Lab5Mock.js"></script>
+    <header>
       <div class="flex-container">
-        <button type="button" class="toptextbutton">Teachers</button>
-        <button type="button" class="toptextbutton">Statistics</button>
-        <button type="button" class="toptextbutton">Favorites</button>
-        <button type="button" class="toptextbutton">About</button>
-        <button type="button" class="top-normal-button" onclick="openForm()">Add teacher</button>
+        <h1 class="teachinder">Teachinder</h1>
+        <input type="text" placeholder="Name, note or age to search" class="toptextinput" size="25"
+          onchange="searchOnChange()" id="teacher-search">
+        <button type="button" class="topbuttonsearch">Search</button>
       </div>
-    </nav>
-  </header>
-  <br>
-  <hr>
-  <main>
-    <article>
-      <center><h1>Top Teachers</h1></center>
-      <div class="flex-container">
-        <div>
-          <label for="age" style="color: gray; margin-left: 8px;">Age</label>
-          <select name="age" id="age-select" style="height: 30px; margin-left:10px;" onchange="onFilterChange()">
-            <option value="all">All</option>
-            <option value="1831">18-31</option>
-            <option value="3299">32-99</option>
-          </select>
-          <div class="vl"></div>
+      <nav>
+        <div class="flex-container">
+          <button type="button" class="toptextbutton">Teachers</button>
+          <button type="button" class="toptextbutton">Statistics</button>
+          <button type="button" class="toptextbutton">Favorites</button>
+          <button type="button" class="toptextbutton">About</button>
+          <button type="button" class="top-normal-button" onclick="openForm()">Add teacher</button>
         </div>
-        <div class="filter-block">
-          <label for="region" style="color: gray;">Region</label>
-          <select name="region" id="region-select" style="height: 30px; margin-left:10px;"  onchange="onFilterChange()">
-            <option value="All">All</option>
-            <option value="United States">United States</option>
-            <option value="Germany">Germany</option>
-          </select>
-          <div class="vl"></div>
-        </div>
-        <div class="filter-block">
-          <label for="sex" style="color: gray;">Sex</label>
-          <select name="sex" id="sex-select" style="height: 30px; margin-left:10px;"  onchange="onFilterChange()">
-            <option value="All">All</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
-          </select>
-          <div class="vl"></div>
-        </div>
-        <div class="filter-block" style="margin-top: 5px;">
-          <input type="checkbox" id="onlywithphoto" name="onlywithphoto" value="withphoto">
-          <label for="onlywithphoto" style="color:grey;"> Only with a photo</label>
-          <div class="vl" style="margin-left: 30px;"></div>
-        </div>
-        <div class="filter-block" style="margin-top: 5px;">
-          <input type="checkbox" id="only-favorites" name="onlyfavorites" value="withfavorites"  onchange="onFilterChange()">
-          <label for="onlyfavorites" style="color:grey;"> Only favorites</label>
-        </div>
-      </div>
-      <div class="grid-container">
-        <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id = "">
-          <img src="" alt="avatar" class="img-teachers-orange">
-          <div class="teachers-div-relative">
-            <img src="star.png" alt="star" style="width: 60px; height: 60px;">
-          </div>
-          <h1 class = "teachers-h1"></h1>
-          <p class = "teachers-p-first"></p>
-          <p class = "teachers-p-second"></p>
-        </div>
-        <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id = "">
-          <img src="" alt="avatar" class="img-teachers-orange">
-          <div class="teachers-div-relative">
-            <img src="star.png" alt="star" style="width: 60px; height: 60px;">
-          </div>
-          <h1 class = "teachers-h1"></h1>
-          <p class = "teachers-p-first"></p>
-          <p class = "teachers-p-second"></p>
-        </div>
-        <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id = "">
-          <img src="" alt="avatar" class="img-teachers-orange">
-          <div class="teachers-div-relative">
-            <img src="star.png" alt="star" style="width: 60px; height: 60px;">
-          </div>
-          <h1 class = "teachers-h1"></h1>
-          <p class = "teachers-p-first"></p>
-          <p class = "teachers-p-second"></p>
-        </div>
-        <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id = "">
-          <img src="" alt="avatar" class="img-teachers-orange">
-          <div class="teachers-div-relative">
-            <img src="star.png" alt="star" style="width: 60px; height: 60px;">
-          </div>
-          <h1 class = "teachers-h1"></h1>
-          <p class = "teachers-p-first"></p>
-          <p class = "teachers-p-second"></p>
-        </div>
-        <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id = "">
-          <img src="" alt="avatar" class="img-teachers-orange">
-          <div class="teachers-div-relative">
-            <img src="star.png" alt="star" style="width: 60px; height: 60px;">
-          </div>
-          <h1 class = "teachers-h1"></h1>
-          <p class = "teachers-p-first"></p>
-          <p class = "teachers-p-second"></p>
-        </div>
-        <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id = "">
-          <img src="" alt="avatar" class="img-teachers-orange">
-          <div class="teachers-div-relative">
-            <img src="star.png" alt="star" style="width: 60px; height: 60px;">
-          </div>
-          <h1 class = "teachers-h1"></h1>
-          <p class = "teachers-p-first"></p>
-          <p class = "teachers-p-second"></p>
-        </div>
-        <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id = "">
-          <img src="" alt="avatar" class="img-teachers-orange">
-          <div class="teachers-div-relative">
-            <img src="star.png" alt="star" style="width: 60px; height: 60px;">
-          </div>
-          <h1 class = "teachers-h1"></h1>
-          <p class = "teachers-p-first"></p>
-          <p class = "teachers-p-second"></p>
-        </div>
-        <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id = "">
-          <img src="" alt="avatar" class="img-teachers-orange">
-          <div class="teachers-div-relative">
-            <img src="star.png" alt="star" style="width: 60px; height: 60px;">
-          </div>
-          <h1 class = "teachers-h1"></h1>
-          <p class = "teachers-p-first"></p>
-          <p class = "teachers-p-second"></p>
-        </div>
-        <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id = "">
-          <img src="" alt="avatar" class="img-teachers-orange">
-          <div class="teachers-div-relative">
-            <img src="star.png" alt="star" style="width: 60px; height: 60px;">
-          </div>
-          <h1 class = "teachers-h1"></h1>
-          <p class = "teachers-p-first"></p>
-          <p class = "teachers-p-second"></p>
-        </div>
-        <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id = "">
-          <img src="" alt="avatar" class="img-teachers-orange">
-          <div class="teachers-div-relative">
-            <img src="star.png" alt="star" style="width: 60px; height: 60px;">
-          </div>
-          <h1 class = "teachers-h1"></h1>
-          <p class = "teachers-p-first"></p>
-          <p class = "teachers-p-second"></p>
-        </div>
-      </div>
-    </article>
-    <br>
-    <center><button style="height: 50px; width: 300px; margin-bottom: 20px;" onclick="nextTeachers()" id = "nextTeachersButton">Далі</button></center>
-    <hr>
-    <article>
-      <center><h1>Statistics</h1></center>
-      <table style="table-layout: fixed;">
-        <thead><th id = "th-first" style="background-color: white;"><div onclick="sortByName(false)" style="cursor: pointer;" >Name<img src = "arrowdown.png" class = "statistics-arrow"></div></th>
-          <th class="center-th-td" id = "th-second" style="background-color: white;"><div onclick = "sortBySpecialty(false)" style="cursor: pointer;">Speciality<img src = "arrowdown.png" class = "statistics-arrow"></div></th>
-          <th class="center-th-td" id = "th-third" style="background-color: white;"><div onclick = "sortByAge(false)" style="cursor: pointer;">Age<img src = "arrowdown.png" class = "statistics-arrow"></div></th>
-          <th class="center-th-td" id = "th-fourth" style="background-color: white;"><div onclick = "sortByGender(false)" style="cursor: pointer;">Gender<img src = "arrowdown.png" class = "statistics-arrow"></div></th>
-          <th class="center-th-td" id = "th-fifth" style="background-color: white;"><div onclick = "sortByNationality(false)" style="cursor: pointer;">Nationality<img src = "arrowdown.png" class = "statistics-arrow"></div></th>
-        </thead>
-        <tr style="border:0px">
-          <td name = "td-name">Alfreds Futterkiste</td>
-          <td  class="center-th-td" name = "td-specialty">Math</td>
-          <td  class="center-th-td" name = "td-age">34</td>
-          <td  class="center-th-td" name = "td-gender">Male</td>
-          <td  class="center-th-td" name = "td-nationality">Germany</td>
-        </tr>
-        <tr>
-          <td name = "td-name">Ryza</td>
-          <td  class="center-th-td" name = "td-specialty">Alchemy</td>
-          <td  class="center-th-td" name = "td-age">27</td>
-          <td  class="center-th-td" name = "td-gender">Female</td>
-          <td  class="center-th-td" name = "td-nationality">India</td>
-        </tr>
-        <tr>
-          <td name = "td-name">Vivec</td>
-          <td  class="center-th-td" name = "td-specialty">Theology</td>
-          <td  class="center-th-td" name = "td-age">1235</td>
-          <td  class="center-th-td" name = "td-gender">Male</td>
-          <td  class="center-th-td" name = "td-nationality">Morrowind</td>
-        </tr>
-        <tr>
-          <td name = "td-name">Alfreds Futterkiste</td>
-          <td  class="center-th-td" name = "td-specialty">Math</td>
-          <td  class="center-th-td" name = "td-age">34</td>
-          <td  class="center-th-td" name = "td-gender">Male</td>
-          <td  class="center-th-td" name = "td-nationality">Germany</td>
-        </tr>
-        <tr>
-          <td  name = "td-name">Ryza</td>
-          <td  class="center-th-td" name = "td-specialty">Alchemy</td>
-          <td  class="center-th-td" name = "td-age">27</td>
-          <td  class="center-th-td" name = "td-gender">Female</td>
-          <td  class="center-th-td" name = "td-nationality">India</td>
-        </tr>
-        <tr>
-          <td  name = "td-name">Vivec</td>
-          <td  class="center-th-td" name = "td-specialty">Theology</td>
-          <td  class="center-th-td" name = "td-age">1235</td>
-          <td  class="center-th-td" name = "td-gender">Male</td>
-          <td  class="center-th-td" name = "td-nationality">Morrowind</td>
-        </tr>
-        <tr>
-          <td  name = "td-name">Alfreds Futterkiste</td>
-          <td  class="center-th-td" name = "td-specialty">Math</td>
-          <td  class="center-th-td" name = "td-age">34</td>
-          <td  class="center-th-td" name = "td-gender">Male</td>
-          <td  class="center-th-td" name = "td-nationality">Germany</td>
-        </tr>
-        <tr>
-          <td  name = "td-name">Ryza</td>
-          <td  class="center-th-td" name = "td-specialty">Alchemy</td>
-          <td  class="center-th-td" name = "td-age">27</td>
-          <td  class="center-th-td" name = "td-gender">Female</td>
-          <td  class="center-th-td" name = "td-nationality">India</td>
-        </tr>
-        <tr>
-          <td name = "td-name">Vivec</td>
-          <td  class="center-th-td" name = "td-specialty">Theology</td>
-          <td  class="center-th-td" name = "td-age">1235</td>
-          <td  class="center-th-td" name = "td-gender">Male</td>
-          <td  class="center-th-td" name = "td-nationality">Morrowind</td>
-        </tr>
-        <tr>
-          <td name = "td-name">Ariette</td>
-          <td  class="center-th-td" name = "td-specialty">Math</td>
-          <td  class="center-th-td" name = "td-age">553</td>
-          <td  class="center-th-td" name = "td-gender">Female</td>
-          <td  class="center-th-td" name = "td-nationality">Germany</td>
-        </tr>
-      </table>
-      <br>
-      <div class="flex-container">
-        <button type="button" class="under-statistics-button" id="statistics-first-button" onclick = "statisticsButton(this.id)">1</button>
-        <button type="button" class="under-statistics-button" id="statistics-second-button" onclick = "statisticsButton(this.id)">2</button>
-        <button type="button" class="under-statistics-button" id="statistics-third-button" onclick = "statisticsButton(this.id)">3</button>
-        <button type="button" class="under-statistics-button" id="statistics-fourth-button" onclick = "statisticsButton(this.id)">4</button>
-        <button type="button" class="three-points" id="statistics-points" onclick = "statisticsButton(this.id)">...</button>
-        <button type="button" class="under-statistics-button" id="statistics-last-button" onclick = "statisticsButton(this.id)">Last</button>
-      </div>
-    </article>
+      </nav>
+    </header>
     <br>
     <hr>
-    <article>
-      <center><h1>Favorites</h1></center>
-      <br>
-      <div class="arrows prev" style="position: absolute; left:25px; top: 1975px; cursor: pointer;" onclick = "previousFavorites()"></div>
-      <div class="favorites-flex-container" style="height: 400px;">
-        <div onclick="openMoreForm(this.id)" id = "" style = "visibility: hidden;"  class = "favorites-first-flex-item" name = "favorites-div">
-          <button type="button" style="background-color: white; border: solid 0px black; cursor: pointer;">
-            <img src="A.png" alt="avatar"  class="img-favorites-orange">
-          </button>
-          <center><h1 class = "favorites-h1">Somebody<br>Somebody</h1></center>
-          <center><p class = "favorites-p-first">Something</p></center>
-          <center><p class = "favorites-p-second">Somewhere</p></center>
-        </div>
-        <div class="favorites-flex-item" onclick="openMoreForm(this.id)" style = "visibility: hidden;"  id = "" name = "favorites-div">
-          <button type="button" style="background-color: white; border: solid 0px black; cursor: pointer;">
-            <img src="A.png" alt="avatar"  class="img-favorites-orange">
-          </button>
-          <center><h1 class = "favorites-h1">Somebody<br>Somebody</h1></center>
-          <center><p class = "favorites-p-first">Something</p></center>
-          <center><p class = "favorites-p-second">Somewhere</p></center>
-        </div>
-        <div class="favorites-flex-item" onclick="openMoreForm(this.id)" style = "visibility: hidden;"  id = "" name = "favorites-div">
-          <button type="button" style="background-color: white; border: solid 0px black; cursor: pointer;">
-            <img src="A.png" alt="avatar"  class="img-favorites-orange">
-          </button>
-          <center><h1 class = "favorites-h1">Somebody<br>Somebody</h1></center>
-          <center><p class = "favorites-p-first">Something</p></center>
-          <center><p class = "favorites-p-second">Somewhere</p></center>
-        </div>
-        <div class="favorites-flex-item" onclick="openMoreForm(this.id)" style = "visibility: hidden;"  id = "" name = "favorites-div">
-          <button type="button" style="background-color: white; border: solid 0px black; cursor: pointer;">
-            <img src="A.png" alt="avatar"  class="img-favorites-orange">
-          </button>
-          <center><h1 class = "favorites-h1">Somebody<br>Somebody</h1></center>
-          <center><p class = "favorites-p-first">Something</p></center>
-          <center><p class = "favorites-p-second">Somewhere</p></center>
-        </div>
-        <div class="favorites-flex-item" onclick="openMoreForm(this.id)" style = "visibility: hidden;" id = "" name = "favorites-div">
-          <button type="button" style="background-color: white; border: solid 0px black; cursor: pointer;">
-            <img src="A.png" alt="avatar"  class="img-favorites-orange">
-          </button>
-          <center><h1 class = "favorites-h1">Somebody<br>Somebody</h1></center>
-          <center><p class = "favorites-p-first">Something</p></center>
-          <center><p class = "favorites-p-second">Somewhere</p></center>
-        </div>
-      </div>
-      <div class="arrows next" style="position: absolute; left:25px; top: 1975px; cursor: pointer;"  onclick = "nextFavorites()"></div>
-    </article>
-  </main>
-  <br>
-  <hr>
-  <br>
-  <br>
-  <br>
-  <footer>
-    <p class="bottom-text">Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.</p>
-    <p class="bottom-text">Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.</p>
-    <p class="bottom-text">Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.</p>
-    <nav>
-      <div class="flex-container">
-        <button type="button" class="toptextbutton">Teachers</button>
-        <button type="button" class="toptextbutton">Statistics</button>
-        <button type="button" class="toptextbutton">Favorites</button>
-        <button type="button" class="toptextbutton">About</button>
-        <button type="button" class="top-normal-button" onclick="openForm(this)">Add teacher</button>
-      </div>
-    </nav>
-  </footer>
-  <br>
-  <br>
-</div>
-<div class="notpopup" id="darken"></div>
-<div class="form-add-popup" id="myForm">
-  <form action="/action_page.php" class="form-add-container" id = "add-teacher-form">
-    <header class = "add-header">
-      <h1 style="margin-left: 10px; margin-top: 15px;">Add teacher</h1>
-      <button type="button" style="cursor: pointer; width: 30px; height: 10px; margin-left:320px; background-color: #454545; border: 0px solid black; margin-top: 12px;" onclick="closeForm()">
-        <img src="cross.png" style="width: 20px; height: 20px; margin-top: 5px;">
-      </button>
-    </header>
-    <main class="add-main">
+    <main>
       <article>
-        <p style="color: gray; margin:0em">Name</p>
-        <input type="text" placeholder="Enter name" size="25" style="height: 30px; width: 430px; margin-top: 10px;" id = "add-teacher-name">
+        <center>
+          <h1>Top Teachers</h1>
+        </center>
+        <div class="flex-container">
+          <div>
+            <label for="age" style="color: gray; margin-left: 8px;">Age</label>
+            <select name="age" id="age-select" style="height: 30px; margin-left:10px;" onchange="onFilterChange()">
+              <option value="all">All</option>
+              <option value="1831">18-31</option>
+              <option value="3299">32-99</option>
+            </select>
+            <div class="vl"></div>
+          </div>
+          <div class="filter-block">
+            <label for="region" style="color: gray;">Region</label>
+            <select name="region" id="region-select" style="height: 30px; margin-left:10px;"
+              onchange="onFilterChange()">
+              <option value="All">All</option>
+              <option value="United States">United States</option>
+              <option value="Germany">Germany</option>
+            </select>
+            <div class="vl"></div>
+          </div>
+          <div class="filter-block">
+            <label for="sex" style="color: gray;">Sex</label>
+            <select name="sex" id="sex-select" style="height: 30px; margin-left:10px;" onchange="onFilterChange()">
+              <option value="All">All</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+            <div class="vl"></div>
+          </div>
+          <div class="filter-block" style="margin-top: 5px;">
+            <input type="checkbox" id="onlywithphoto" name="onlywithphoto" value="withphoto">
+            <label for="onlywithphoto" style="color:grey;"> Only with a photo</label>
+            <div class="vl" style="margin-left: 30px;"></div>
+          </div>
+          <div class="filter-block" style="margin-top: 5px;">
+            <input type="checkbox" id="only-favorites" name="onlyfavorites" value="withfavorites"
+              onchange="onFilterChange()">
+            <label for="onlyfavorites" style="color:grey;"> Only favorites</label>
+          </div>
+        </div>
+        <div class="grid-container">
+          <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id="">
+            <img src="" alt="avatar" class="img-teachers-orange">
+            <div class="teachers-div-relative">
+              <img src="star.png" alt="star" style="width: 60px; height: 60px;">
+            </div>
+            <h1 class="teachers-h1"></h1>
+            <p class="teachers-p-first"></p>
+            <p class="teachers-p-second"></p>
+          </div>
+          <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id="">
+            <img src="" alt="avatar" class="img-teachers-orange">
+            <div class="teachers-div-relative">
+              <img src="star.png" alt="star" style="width: 60px; height: 60px;">
+            </div>
+            <h1 class="teachers-h1"></h1>
+            <p class="teachers-p-first"></p>
+            <p class="teachers-p-second"></p>
+          </div>
+          <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id="">
+            <img src="" alt="avatar" class="img-teachers-orange">
+            <div class="teachers-div-relative">
+              <img src="star.png" alt="star" style="width: 60px; height: 60px;">
+            </div>
+            <h1 class="teachers-h1"></h1>
+            <p class="teachers-p-first"></p>
+            <p class="teachers-p-second"></p>
+          </div>
+          <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id="">
+            <img src="" alt="avatar" class="img-teachers-orange">
+            <div class="teachers-div-relative">
+              <img src="star.png" alt="star" style="width: 60px; height: 60px;">
+            </div>
+            <h1 class="teachers-h1"></h1>
+            <p class="teachers-p-first"></p>
+            <p class="teachers-p-second"></p>
+          </div>
+          <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id="">
+            <img src="" alt="avatar" class="img-teachers-orange">
+            <div class="teachers-div-relative">
+              <img src="star.png" alt="star" style="width: 60px; height: 60px;">
+            </div>
+            <h1 class="teachers-h1"></h1>
+            <p class="teachers-p-first"></p>
+            <p class="teachers-p-second"></p>
+          </div>
+          <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id="">
+            <img src="" alt="avatar" class="img-teachers-orange">
+            <div class="teachers-div-relative">
+              <img src="star.png" alt="star" style="width: 60px; height: 60px;">
+            </div>
+            <h1 class="teachers-h1"></h1>
+            <p class="teachers-p-first"></p>
+            <p class="teachers-p-second"></p>
+          </div>
+          <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id="">
+            <img src="" alt="avatar" class="img-teachers-orange">
+            <div class="teachers-div-relative">
+              <img src="star.png" alt="star" style="width: 60px; height: 60px;">
+            </div>
+            <h1 class="teachers-h1"></h1>
+            <p class="teachers-p-first"></p>
+            <p class="teachers-p-second"></p>
+          </div>
+          <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id="">
+            <img src="" alt="avatar" class="img-teachers-orange">
+            <div class="teachers-div-relative">
+              <img src="star.png" alt="star" style="width: 60px; height: 60px;">
+            </div>
+            <h1 class="teachers-h1"></h1>
+            <p class="teachers-p-first"></p>
+            <p class="teachers-p-second"></p>
+          </div>
+          <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id="">
+            <img src="" alt="avatar" class="img-teachers-orange">
+            <div class="teachers-div-relative">
+              <img src="star.png" alt="star" style="width: 60px; height: 60px;">
+            </div>
+            <h1 class="teachers-h1"></h1>
+            <p class="teachers-p-first"></p>
+            <p class="teachers-p-second"></p>
+          </div>
+          <div class="teachers-grid-item" onclick="openMoreForm(this.id)" id="">
+            <img src="" alt="avatar" class="img-teachers-orange">
+            <div class="teachers-div-relative">
+              <img src="star.png" alt="star" style="width: 60px; height: 60px;">
+            </div>
+            <h1 class="teachers-h1"></h1>
+            <p class="teachers-p-first"></p>
+            <p class="teachers-p-second"></p>
+          </div>
+        </div>
       </article>
-      <article class="add-article">
-        <p style="color: gray; margin:0em;">Specialty</p>
-        <select name="specialty" style="height: 30px; width: 430px; margin-top: 10px;" id = "add-teacher-specialty">
-          <option value="Mathematics">Mathematics</option>
-          <option value="Theology">Theology</option>
-        </select>
-      </article>
       <br>
-      <div class="add-flex">
-        <article>
-          <p style="color: gray; margin:0em;">Country </p>
-          <select name="country" style="height: 30px; width: 170px; margin-top: 10px;" id = "add-teacher-country">
-            <option value="Ukraine">Ukraine</option>
-            <option value="United States">United States</option>
-          </select>
-        </article>
-        <article style="margin-left: 80px;">
-          <p style="color: gray;; margin:0em;">City </p>
-          <input type="text" size="25" style="height: 30px; width: 170px; margin-top: 10px;" id = "add-teacher-city">
-        </article>
-      </div>
-      <br>
-      <div class="add-flex">
-        <article>
-          <p style="color: gray; margin:0em;" >Email </p>
-          <input type="email" size="25" style="height: 30px; width: 170px; margin-top: 10px;" id = "add-teacher-email">
-        </article>
-        <article style="margin-left: 80px;">
-          <p style="color: gray;; margin:0em;" >Phone </p>
-          <input type="tel" size="25" style="height: 30px; width: 170px; margin-top: 10px;" id = "add-teacher-phone">
-        </article>
-      </div>
-      <br>
+      <center><button style="height: 50px; width: 300px; margin-bottom: 20px;" onclick="nextTeachers()"
+          id="nextTeachersButton">Далі</button></center>
+      <hr>
       <article>
-        <p style="color: gray; margin:0em;" >Date of birth </p>
-        <input type="date" size="25" style="height: 30px; width: 170px; margin-top: 10px;" id = "add-teacher-birthday">
+        <center>
+          <h1>Statistics</h1>
+        </center>
+        <table style="table-layout: fixed;">
+          <thead>
+            <th id="th-first" style="background-color: white;">
+              <div onclick="sortByName(false)" style="cursor: pointer;">Name<img src="arrowdown.png"
+                  class="statistics-arrow"></div>
+            </th>
+            <th class="center-th-td" id="th-second" style="background-color: white;">
+              <div onclick="sortBySpecialty(false)" style="cursor: pointer;">Speciality<img src="arrowdown.png"
+                  class="statistics-arrow"></div>
+            </th>
+            <th class="center-th-td" id="th-third" style="background-color: white;">
+              <div onclick="sortByAge(false)" style="cursor: pointer;">Age<img src="arrowdown.png"
+                  class="statistics-arrow"></div>
+            </th>
+            <th class="center-th-td" id="th-fourth" style="background-color: white;">
+              <div onclick="sortByGender(false)" style="cursor: pointer;">Gender<img src="arrowdown.png"
+                  class="statistics-arrow"></div>
+            </th>
+            <th class="center-th-td" id="th-fifth" style="background-color: white;">
+              <div onclick="sortByNationality(false)" style="cursor: pointer;">Nationality<img src="arrowdown.png"
+                  class="statistics-arrow"></div>
+            </th>
+          </thead>
+          <tr style="border:0px">
+            <td name="td-name">Alfreds Futterkiste</td>
+            <td class="center-th-td" name="td-specialty">Math</td>
+            <td class="center-th-td" name="td-age">34</td>
+            <td class="center-th-td" name="td-gender">Male</td>
+            <td class="center-th-td" name="td-nationality">Germany</td>
+          </tr>
+          <tr>
+            <td name="td-name">Ryza</td>
+            <td class="center-th-td" name="td-specialty">Alchemy</td>
+            <td class="center-th-td" name="td-age">27</td>
+            <td class="center-th-td" name="td-gender">Female</td>
+            <td class="center-th-td" name="td-nationality">India</td>
+          </tr>
+          <tr>
+            <td name="td-name">Vivec</td>
+            <td class="center-th-td" name="td-specialty">Theology</td>
+            <td class="center-th-td" name="td-age">1235</td>
+            <td class="center-th-td" name="td-gender">Male</td>
+            <td class="center-th-td" name="td-nationality">Morrowind</td>
+          </tr>
+          <tr>
+            <td name="td-name">Alfreds Futterkiste</td>
+            <td class="center-th-td" name="td-specialty">Math</td>
+            <td class="center-th-td" name="td-age">34</td>
+            <td class="center-th-td" name="td-gender">Male</td>
+            <td class="center-th-td" name="td-nationality">Germany</td>
+          </tr>
+          <tr>
+            <td name="td-name">Ryza</td>
+            <td class="center-th-td" name="td-specialty">Alchemy</td>
+            <td class="center-th-td" name="td-age">27</td>
+            <td class="center-th-td" name="td-gender">Female</td>
+            <td class="center-th-td" name="td-nationality">India</td>
+          </tr>
+          <tr>
+            <td name="td-name">Vivec</td>
+            <td class="center-th-td" name="td-specialty">Theology</td>
+            <td class="center-th-td" name="td-age">1235</td>
+            <td class="center-th-td" name="td-gender">Male</td>
+            <td class="center-th-td" name="td-nationality">Morrowind</td>
+          </tr>
+          <tr>
+            <td name="td-name">Alfreds Futterkiste</td>
+            <td class="center-th-td" name="td-specialty">Math</td>
+            <td class="center-th-td" name="td-age">34</td>
+            <td class="center-th-td" name="td-gender">Male</td>
+            <td class="center-th-td" name="td-nationality">Germany</td>
+          </tr>
+          <tr>
+            <td name="td-name">Ryza</td>
+            <td class="center-th-td" name="td-specialty">Alchemy</td>
+            <td class="center-th-td" name="td-age">27</td>
+            <td class="center-th-td" name="td-gender">Female</td>
+            <td class="center-th-td" name="td-nationality">India</td>
+          </tr>
+          <tr>
+            <td name="td-name">Vivec</td>
+            <td class="center-th-td" name="td-specialty">Theology</td>
+            <td class="center-th-td" name="td-age">1235</td>
+            <td class="center-th-td" name="td-gender">Male</td>
+            <td class="center-th-td" name="td-nationality">Morrowind</td>
+          </tr>
+          <tr>
+            <td name="td-name">Ariette</td>
+            <td class="center-th-td" name="td-specialty">Math</td>
+            <td class="center-th-td" name="td-age">553</td>
+            <td class="center-th-td" name="td-gender">Female</td>
+            <td class="center-th-td" name="td-nationality">Germany</td>
+          </tr>
+        </table>
+        <br>
+        <div class="flex-container">
+          <button type="button" class="under-statistics-button" id="statistics-first-button"
+            onclick="statisticsButton(this.id)">1</button>
+          <button type="button" class="under-statistics-button" id="statistics-second-button"
+            onclick="statisticsButton(this.id)">2</button>
+          <button type="button" class="under-statistics-button" id="statistics-third-button"
+            onclick="statisticsButton(this.id)">3</button>
+          <button type="button" class="under-statistics-button" id="statistics-fourth-button"
+            onclick="statisticsButton(this.id)">4</button>
+          <button type="button" class="three-points" id="statistics-points"
+            onclick="statisticsButton(this.id)">...</button>
+          <button type="button" class="under-statistics-button" id="statistics-last-button"
+            onclick="statisticsButton(this.id)">Last</button>
+        </div>
       </article>
       <br>
-      <div class="add-flex">
-        <article>
-          <p style="color: gray; margin:0em; float: left; padding-right: 30px;" >Sex </p>
-          <label>Male<input type="radio"  value="male" name = "add-teacher-sex" style="vertical-align: middle; margin-top: -2px;"></label>
-          <label>Female<input type="radio"  value="female" name = "add-teacher-sex" style="vertical-align: middle; margin-top: -2px;"></label>
-          <label>Other<input type="radio"  value="other" name = "add-teacher-sex" style="vertical-align: middle; margin-top: -2px;"></label>
-        </article>
-      </div>
-      <br>
-      <div class="add-flex">
-        <article>
-          <label style="color: gray; margin:0em; float: left; padding-right: 60px; margin-top: 3px; ">Background color<input type="color" id = "add-teacher-color" style="margin-left: 30px;"> <img src="colors.png" style="width: 10px; height: 10px; margin-bottom: 5px;"></label>
-        </article>
-      </div>
-      <br>
-      <br>
+      <hr>
       <article>
-        <p style="color: gray; margin:0em">Notes (optional)</p>
-        <textarea style="height: 130px; width: 430px; margin-top: 10px;" id = "add-teacher-notes"></textarea>
-      </article>
-      <article>
-        <button type="button" class="popup-add-button" onclick = "addNewTeacher()">Add</button>
+        <center>
+          <h1>Favorites</h1>
+        </center>
+        <br>
+        <div class="arrows prev" style="position: absolute; left:25px; top: 1975px; cursor: pointer;"
+          onclick="previousFavorites()"></div>
+        <div class="favorites-flex-container" style="height: 400px;">
+          <div onclick="openMoreForm(this.id)" id="" style="visibility: hidden;" class="favorites-first-flex-item"
+            name="favorites-div">
+            <button type="button" style="background-color: white; border: solid 0px black; cursor: pointer;">
+              <img src="A.png" alt="avatar" class="img-favorites-orange">
+            </button>
+            <center>
+              <h1 class="favorites-h1">Somebody<br>Somebody</h1>
+            </center>
+            <center>
+              <p class="favorites-p-first">Something</p>
+            </center>
+            <center>
+              <p class="favorites-p-second">Somewhere</p>
+            </center>
+          </div>
+          <div class="favorites-flex-item" onclick="openMoreForm(this.id)" style="visibility: hidden;" id=""
+            name="favorites-div">
+            <button type="button" style="background-color: white; border: solid 0px black; cursor: pointer;">
+              <img src="A.png" alt="avatar" class="img-favorites-orange">
+            </button>
+            <center>
+              <h1 class="favorites-h1">Somebody<br>Somebody</h1>
+            </center>
+            <center>
+              <p class="favorites-p-first">Something</p>
+            </center>
+            <center>
+              <p class="favorites-p-second">Somewhere</p>
+            </center>
+          </div>
+          <div class="favorites-flex-item" onclick="openMoreForm(this.id)" style="visibility: hidden;" id=""
+            name="favorites-div">
+            <button type="button" style="background-color: white; border: solid 0px black; cursor: pointer;">
+              <img src="A.png" alt="avatar" class="img-favorites-orange">
+            </button>
+            <center>
+              <h1 class="favorites-h1">Somebody<br>Somebody</h1>
+            </center>
+            <center>
+              <p class="favorites-p-first">Something</p>
+            </center>
+            <center>
+              <p class="favorites-p-second">Somewhere</p>
+            </center>
+          </div>
+          <div class="favorites-flex-item" onclick="openMoreForm(this.id)" style="visibility: hidden;" id=""
+            name="favorites-div">
+            <button type="button" style="background-color: white; border: solid 0px black; cursor: pointer;">
+              <img src="A.png" alt="avatar" class="img-favorites-orange">
+            </button>
+            <center>
+              <h1 class="favorites-h1">Somebody<br>Somebody</h1>
+            </center>
+            <center>
+              <p class="favorites-p-first">Something</p>
+            </center>
+            <center>
+              <p class="favorites-p-second">Somewhere</p>
+            </center>
+          </div>
+          <div class="favorites-flex-item" onclick="openMoreForm(this.id)" style="visibility: hidden;" id=""
+            name="favorites-div">
+            <button type="button" style="background-color: white; border: solid 0px black; cursor: pointer;">
+              <img src="A.png" alt="avatar" class="img-favorites-orange">
+            </button>
+            <center>
+              <h1 class="favorites-h1">Somebody<br>Somebody</h1>
+            </center>
+            <center>
+              <p class="favorites-p-first">Something</p>
+            </center>
+            <center>
+              <p class="favorites-p-second">Somewhere</p>
+            </center>
+          </div>
+        </div>
+        <div class="arrows next" style="position: absolute; left:25px; top: 1975px; cursor: pointer;"
+          onclick="nextFavorites()"></div>
       </article>
     </main>
-  </form>
-</div>
-<div class="form-more-popup" id="more">
-  <form action="/action_page.php" class="form-more-container">
-    <header class = "more-header">
-      <h1 style="margin-left: 10px; margin-top: 7px;">Teacher info</h1>
-      <button type="button" style="cursor: pointer; width: 30px; margin-left:620px; background-color: #454545; border: 0px solid black;" onclick="closeMoreForm()">
-        <img src="cross.png" style="width: 30px; height: 30px; margin-top: 5px;">
-      </button>
-    </header>
-    <main class="more-main">
-      <img src="" class="more-img" id = "more-img">
-      <div class="more-flex">
-        <h1 style="font-size: 24px; padding-right: 30px; width: 400px;" id = "more-name"></h1>
-        <button type="button" style="cursor: pointer; width: 10px; margin-left: 30px; background-color: white; border: 0px solid black;" onclick="addToFavorites()">
-          <img src="emptystar.png" style="width: 40px; height: 40px; margin-top: 5px" id = "img-more-star">
-        </button>
-      </div>
-      <p style="font-size:20px; font-weight: bold;" id = "more-course" ></p>
-      <p id = "more-city-country"></p>
-      <p id = "more-age-sex">35, Male</p>
-      <div onclick="Something()">
-        <p style = "border: 0px solid black; background-color:white; color: blue; cursor: pointer; font-size: 16px;" id = "more-email"></p>
-      </div>
-      <p id = "more-phone"></p>
-    </main>
-    <footer style="margin-top: 120px; margin-left: 20px; margin-right: 10px;">
-      <p style="color:gray;">Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.</p>
-      <div onclick="Something()">
-        <p style = "border: 0px solid black; background-color:white; color: blue; cursor: pointer; font-size: 16px; text-emphasis-style: dot; text-emphasis-position: under">toggle map</p>
-      </div>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+    <footer>
+      <p class="bottom-text">Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet,
+        consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit
+        amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor
+        sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum
+        dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem
+        Ipsum dolor sit amet, consectetur adiplslcing elit.</p>
+      <p class="bottom-text">Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet,
+        consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit
+        amet, consectetur adiplslcing elit.</p>
+      <p class="bottom-text">Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet,
+        consectetur adiplslcing elit.</p>
+      <nav>
+        <div class="flex-container">
+          <button type="button" class="toptextbutton">Teachers</button>
+          <button type="button" class="toptextbutton">Statistics</button>
+          <button type="button" class="toptextbutton">Favorites</button>
+          <button type="button" class="toptextbutton">About</button>
+          <button type="button" class="top-normal-button" onclick="openForm(this)">Add teacher</button>
+        </div>
+      </nav>
     </footer>
-  </form>
-</div>
+    <br>
+    <br>
+  </div>
+  <div class="notpopup" id="darken"></div>
+  <div class="form-add-popup" id="myForm">
+    <form action="/action_page.php" class="form-add-container" id="add-teacher-form">
+      <header class="add-header">
+        <h1 style="margin-left: 10px; margin-top: 15px;">Add teacher</h1>
+        <button type="button"
+          style="cursor: pointer; width: 30px; height: 10px; margin-left:320px; background-color: #454545; border: 0px solid black; margin-top: 12px;"
+          onclick="closeForm()">
+          <img src="cross.png" style="width: 20px; height: 20px; margin-top: 5px;">
+        </button>
+      </header>
+      <main class="add-main">
+        <article>
+          <p style="color: gray; margin:0em">Name</p>
+          <input type="text" placeholder="Enter name" size="25" style="height: 30px; width: 430px; margin-top: 10px;"
+            id="add-teacher-name">
+        </article>
+        <article class="add-article">
+          <p style="color: gray; margin:0em;">Specialty</p>
+          <select name="specialty" style="height: 30px; width: 430px; margin-top: 10px;" id="add-teacher-specialty">
+            <option value="Mathematics">Mathematics</option>
+            <option value="Theology">Theology</option>
+          </select>
+        </article>
+        <br>
+        <div class="add-flex">
+          <article>
+            <p style="color: gray; margin:0em;">Country </p>
+            <select name="country" style="height: 30px; width: 170px; margin-top: 10px;" id="add-teacher-country">
+              <option value="Ukraine">Ukraine</option>
+              <option value="United States">United States</option>
+            </select>
+          </article>
+          <article style="margin-left: 80px;">
+            <p style="color: gray;; margin:0em;">City </p>
+            <input type="text" size="25" style="height: 30px; width: 170px; margin-top: 10px;" id="add-teacher-city">
+          </article>
+        </div>
+        <br>
+        <div class="add-flex">
+          <article>
+            <p style="color: gray; margin:0em;">Email </p>
+            <input type="email" size="25" style="height: 30px; width: 170px; margin-top: 10px;" id="add-teacher-email">
+          </article>
+          <article style="margin-left: 80px;">
+            <p style="color: gray;; margin:0em;">Phone </p>
+            <input type="tel" size="25" style="height: 30px; width: 170px; margin-top: 10px;" id="add-teacher-phone">
+          </article>
+        </div>
+        <br>
+        <article>
+          <p style="color: gray; margin:0em;">Date of birth </p>
+          <input type="date" size="25" style="height: 30px; width: 170px; margin-top: 10px;" id="add-teacher-birthday">
+        </article>
+        <br>
+        <div class="add-flex">
+          <article>
+            <p style="color: gray; margin:0em; float: left; padding-right: 30px;">Sex </p>
+            <label>Male<input type="radio" value="male" name="add-teacher-sex"
+                style="vertical-align: middle; margin-top: -2px;"></label>
+            <label>Female<input type="radio" value="female" name="add-teacher-sex"
+                style="vertical-align: middle; margin-top: -2px;"></label>
+            <label>Other<input type="radio" value="other" name="add-teacher-sex"
+                style="vertical-align: middle; margin-top: -2px;"></label>
+          </article>
+        </div>
+        <br>
+        <div class="add-flex">
+          <article>
+            <label style="color: gray; margin:0em; float: left; padding-right: 60px; margin-top: 3px; ">Background
+              color<input type="color" id="add-teacher-color" style="margin-left: 30px;"> <img src="colors.png"
+                style="width: 10px; height: 10px; margin-bottom: 5px;"></label>
+          </article>
+        </div>
+        <br>
+        <br>
+        <article>
+          <p style="color: gray; margin:0em">Notes (optional)</p>
+          <textarea style="height: 130px; width: 430px; margin-top: 10px;" id="add-teacher-notes"></textarea>
+        </article>
+        <article>
+          <button type="button" class="popup-add-button" onclick="addNewTeacher()">Add</button>
+        </article>
+      </main>
+    </form>
+  </div>
+  <div class="form-more-popup" id="more">
+    <form action="/action_page.php" class="form-more-container">
+      <header class="more-header">
+        <h1 style="margin-left: 10px; margin-top: 7px;">Teacher info</h1>
+        <button type="button"
+          style="cursor: pointer; width: 30px; margin-left:620px; background-color: #454545; border: 0px solid black;"
+          onclick="closeMoreForm()">
+          <img src="cross.png" style="width: 30px; height: 30px; margin-top: 5px;">
+        </button>
+      </header>
+      <main class="more-main">
+        <img src="" class="more-img" id="more-img">
+        <div class="more-flex">
+          <h1 style="font-size: 24px; padding-right: 30px; width: 400px;" id="more-name"></h1>
+          <button type="button"
+            style="cursor: pointer; width: 10px; margin-left: 30px; background-color: white; border: 0px solid black;"
+            onclick="addToFavorites()">
+            <img src="emptystar.png" style="width: 40px; height: 40px; margin-top: 5px" id="img-more-star">
+          </button>
+        </div>
+        <p style="font-size:20px; font-weight: bold;" id="more-course"></p>
+        <p id="more-city-country"></p>
+        <p id="more-age-sex">35, Male</p>
+        <div onclick="Something()">
+          <p style="border: 0px solid black; background-color:white; color: blue; cursor: pointer; font-size: 16px;"
+            id="more-email"></p>
+        </div>
+        <p id="more-phone"></p>
+      </main>
+      <footer style="margin-top: 120px; margin-left: 20px; margin-right: 10px;">
+        <p style="color:gray;">Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.Lorem Ipsum dolor sit amet,
+          consectetur adiplslcing elit.Lorem Ipsum dolor sit amet, consectetur adiplslcing elit.</p>
+        <div onclick="Something()">
+          <p
+            style="border: 0px solid black; background-color:white; color: blue; cursor: pointer; font-size: 16px; text-emphasis-style: dot; text-emphasis-position: under">
+            toggle map</p>
+        </div>
+      </footer>
+    </form>
+  </div>
+  </div>
 </body>
 
 </html>
