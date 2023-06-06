@@ -4365,7 +4365,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator.return && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, catch: function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-'';
+"";
 var randomUserIndex = 0;
 var currentMoreTeacherElement = null;
 var currentMoreTeacherElementID = "";
@@ -4421,9 +4421,9 @@ function openMoreForm(elemID) {
       var starImg = document.getElementById("img-more-star");
       for (var g = 0; g < _Lab5Mock.favoriteTeachers.length; g++) {
         if (_Lab5Mock.favoriteTeachers[g].id == randomUserApiMock[i].id) {
-          starImg.src = "star.png";
+          starImg.src = "./star.png";
           break;
-        } else starImg.src = "emptystar.png";
+        } else starImg.src = "./emptystar.png";
       }
     }
   }
@@ -4461,10 +4461,10 @@ function old_sortByCountry(country, type) {
         break;
       }
       if (CanPush) MockCountry.push(randomUserApiMock[i].country);
-      if (type === 'descending') {
+      if (type === "descending") {
         MockCountry.sort();
         MockCountry.reverse();
-      } else if (type === 'ascending') MockCountry.sort();
+      } else if (type === "ascending") MockCountry.sort();
       var finalArray = [];
       for (var j = 0; i < MockCountry.length; i++) {
         var object = {
@@ -4489,9 +4489,9 @@ function old_sortByAge(age, type) {
         break;
       }
       if (CanPush) MockAge.push(randomUserApiMock[i].age);
-      if (type === 'descending') MockAge.sort(function (a, b) {
+      if (type === "descending") MockAge.sort(function (a, b) {
         return b - a;
-      });else if (type === 'ascending') MockAge.sort(function (a, b) {
+      });else if (type === "ascending") MockAge.sort(function (a, b) {
         return a - b;
       });
       var finalArray = [];
@@ -4518,10 +4518,10 @@ function old_sortByGender(gender, type) {
         break;
       }
       if (CanPush) MockGender.push(randomUserApiMock[i].gender);
-      if (type === 'descending') {
+      if (type === "descending") {
         MockGender.sort();
         MockGender.reverse();
-      } else if (type === 'ascending') MockGender.sort();
+      } else if (type === "ascending") MockGender.sort();
       var finalArray = [];
       for (var j = 0; i < MockGender.length; i++) {
         var object = {
@@ -4546,10 +4546,10 @@ function old_sortByFavorite(favorite, type) {
         break;
       }
       if (CanPush) MockFavorite.push(randomUserApiMock[i].favorite);
-      if (type === 'descending') {
+      if (type === "descending") {
         MockFavorite.sort();
         MockFavorite.reverse();
-      } else if (type === 'ascending') MockFavorite.sort();
+      } else if (type === "ascending") MockFavorite.sort();
       var finalArray = [];
       for (var j = 0; i < MockFavorite.length; i++) {
         var object = {
@@ -4643,14 +4643,14 @@ function _setGridStatisticsItems() {
         case 19:
           randomUserApiMock = _context.sent;
           currentIndex = randomUserIndex;
-          arrayimg = Array.from(document.getElementsByClassName('img-teachers-orange'));
+          arrayimg = Array.from(document.getElementsByClassName("img-teachers-orange"));
           arrayimg.forEach(function (el) {
             el.src = randomUserApiMock[currentIndex].picture_large;
             currentIndex++;
             if (currentIndex >= randomUserApiMock.length) currentIndex = 0;
           });
           currentIndex = randomUserIndex;
-          arrayh1 = Array.from(document.getElementsByClassName('teachers-h1'));
+          arrayh1 = Array.from(document.getElementsByClassName("teachers-h1"));
           arrayh1.forEach(function (el) {
             var firstName = "";
             var lastName = "";
@@ -4670,46 +4670,46 @@ function _setGridStatisticsItems() {
             if (currentIndex >= randomUserApiMock.length) currentIndex = 0;
           });
           currentIndex = randomUserIndex;
-          arraydiv = Array.from(document.getElementsByClassName('teachers-grid-item'));
+          arraydiv = Array.from(document.getElementsByClassName("teachers-grid-item"));
           arraydiv.forEach(function (el) {
             el.id = randomUserApiMock[currentIndex].id;
             currentIndex++;
             if (currentIndex >= randomUserApiMock.length) currentIndex = 0;
           });
           currentIndex = randomUserIndex;
-          arraypfirst = Array.from(document.getElementsByClassName('teachers-p-first'));
+          arraypfirst = Array.from(document.getElementsByClassName("teachers-p-first"));
           arraypfirst.forEach(function (el) {
             el.innerHTML = randomUserApiMock[currentIndex].course;
             currentIndex++;
             if (currentIndex >= randomUserApiMock.length) currentIndex = 0;
           });
           currentIndex = randomUserIndex;
-          arraypsecond = Array.from(document.getElementsByClassName('teachers-p-second'));
+          arraypsecond = Array.from(document.getElementsByClassName("teachers-p-second"));
           arraypsecond.forEach(function (el) {
             el.innerHTML = randomUserApiMock[currentIndex].country;
             currentIndex++;
             if (currentIndex >= randomUserApiMock.length) currentIndex = 0;
           });
           randomUserIndex = currentIndex;
-          arrayName = Array.from(document.getElementsByName('td-name'));
-          arraySpecialty = Array.from(document.getElementsByName('td-specialty'));
-          arrayAge = Array.from(document.getElementsByName('td-age'));
-          arrayGender = Array.from(document.getElementsByName('td-gender'));
-          arrayNationality = Array.from(document.getElementsByName('td-nationality'));
+          arrayName = Array.from(document.getElementsByName("td-name"));
+          arraySpecialty = Array.from(document.getElementsByName("td-specialty"));
+          arrayAge = Array.from(document.getElementsByName("td-age"));
+          arrayGender = Array.from(document.getElementsByName("td-gender"));
+          arrayNationality = Array.from(document.getElementsByName("td-nationality"));
           for (i = 0; i < randomUserApiMock.length; i++) {
             finalStatisticsArray.push({
-              "name": randomUserApiMock[i].full_name,
-              "specialty": randomUserApiMock[i].course,
-              "age": randomUserApiMock[i].age,
-              "gender": randomUserApiMock[i].gender,
-              "nationality": randomUserApiMock[i].country
+              name: randomUserApiMock[i].full_name,
+              specialty: randomUserApiMock[i].course,
+              age: randomUserApiMock[i].age,
+              gender: randomUserApiMock[i].gender,
+              nationality: randomUserApiMock[i].country
             });
             statisticsFinalArrayToSort.push({
-              "name": _Lab5Mock.randomUserMock[i].full_name,
-              "specialty": _Lab5Mock.randomUserMock[i].course,
-              "age": _Lab5Mock.randomUserMock[i].age,
-              "gender": _Lab5Mock.randomUserMock[i].gender,
-              "nationality": _Lab5Mock.randomUserMock[i].country
+              name: _Lab5Mock.randomUserMock[i].full_name,
+              specialty: _Lab5Mock.randomUserMock[i].course,
+              age: _Lab5Mock.randomUserMock[i].age,
+              gender: _Lab5Mock.randomUserMock[i].gender,
+              nationality: _Lab5Mock.randomUserMock[i].country
             });
           }
           for (_i33 = 0; _i33 < randomUserApiMock.length; _i33++) finalSearchArray.push(randomUserApiMock[_i33]);
@@ -4741,12 +4741,12 @@ function _setNextTeachers() {
         case 0:
           if (currentDisplayedTeachersIndex * 10 >= arrayWithData.length) currentDisplayedTeachersIndex = 0;
           currentIndex = currentDisplayedTeachersIndex * 10;
-          arrayimg = Array.from(document.getElementsByClassName('img-teachers-orange'));
-          arrayh1 = Array.from(document.getElementsByClassName('teachers-h1'));
-          arraydiv = Array.from(document.getElementsByClassName('teachers-grid-item'));
-          arraypfirst = Array.from(document.getElementsByClassName('teachers-p-first'));
-          arraypsecond = Array.from(document.getElementsByClassName('teachers-p-second'));
-          arrayStar = Array.from(document.getElementsByClassName('teachers-div-relative'));
+          arrayimg = Array.from(document.getElementsByClassName("img-teachers-orange"));
+          arrayh1 = Array.from(document.getElementsByClassName("teachers-h1"));
+          arraydiv = Array.from(document.getElementsByClassName("teachers-grid-item"));
+          arraypfirst = Array.from(document.getElementsByClassName("teachers-p-first"));
+          arraypsecond = Array.from(document.getElementsByClassName("teachers-p-second"));
+          arrayStar = Array.from(document.getElementsByClassName("teachers-div-relative"));
           lastIndex = 0;
           i = 0;
         case 10:
@@ -4849,11 +4849,11 @@ function addToFavorites() {
         break;
       }
       if (!isFavorite) {
-        var arrayimg = Array.from(document.getElementsByClassName('img-favorites-orange'));
-        var arrayh1 = Array.from(document.getElementsByClassName('favorites-h1'));
-        var arraypfirst = Array.from(document.getElementsByClassName('favorites-p-first'));
-        var arraypsecond = Array.from(document.getElementsByClassName('favorites-p-second'));
-        var arraydiv = Array.from(document.getElementsByName('favorites-div'));
+        var arrayimg = Array.from(document.getElementsByClassName("img-favorites-orange"));
+        var arrayh1 = Array.from(document.getElementsByClassName("favorites-h1"));
+        var arraypfirst = Array.from(document.getElementsByClassName("favorites-p-first"));
+        var arraypsecond = Array.from(document.getElementsByClassName("favorites-p-second"));
+        var arraydiv = Array.from(document.getElementsByName("favorites-div"));
         for (var c = 0; c < arraydiv.length; c++) if (arraydiv[c].id == "") {
           arrayimg[c].src = randomUserApiMock[i].picture_large;
           var firstName = "";
@@ -4877,30 +4877,30 @@ function addToFavorites() {
           break;
         }
         _Lab5Mock.favoriteTeachers.push({
-          "picture_large": randomUserApiMock[i].picture_large,
-          "id": randomUserApiMock[i].id,
-          "name": randomUserApiMock[i].full_name
+          picture_large: randomUserApiMock[i].picture_large,
+          id: randomUserApiMock[i].id,
+          name: randomUserApiMock[i].full_name
         });
         var starImg = document.getElementById("img-more-star");
         var indexForTeachers = 0;
-        var arrayRelativeStars = Array.from(document.getElementsByClassName('teachers-div-relative'));
-        var arrayTeachers = Array.from(document.getElementsByClassName('teachers-grid-item'));
+        var arrayRelativeStars = Array.from(document.getElementsByClassName("teachers-div-relative"));
+        var arrayTeachers = Array.from(document.getElementsByClassName("teachers-grid-item"));
         for (var _c = 0; _c < arrayTeachers.length; _c++) if (arrayTeachers[_c].id == currentMoreTeacherElement.id) indexForTeachers = _c;
-        if (starImg.src === "file:///D:/Unik/Web/Lab5/emptystar.png") {
-          starImg.src = "star.png";
+        if (starImg.src === "./emptystar.png") {
+          starImg.src = "./star.png";
           arrayRelativeStars[indexForTeachers].style.visibility = "visible";
         } else {
-          starImg.src = "emptystar.png";
+          starImg.src = "./emptystar.png";
           arrayRelativeStars[indexForTeachers].style.visibility = "hidden";
         }
       } else if (isFavorite) {
         var _starImg = document.getElementById("img-more-star");
         var _indexForTeachers = 0;
-        var _arrayRelativeStars = Array.from(document.getElementsByClassName('teachers-div-relative'));
-        var _arrayTeachers = Array.from(document.getElementsByClassName('teachers-grid-item'));
-        var arrayFavorites = Array.from(document.getElementsByName('favorites-div'));
+        var _arrayRelativeStars = Array.from(document.getElementsByClassName("teachers-div-relative"));
+        var _arrayTeachers = Array.from(document.getElementsByClassName("teachers-grid-item"));
+        var arrayFavorites = Array.from(document.getElementsByName("favorites-div"));
         for (var _c2 = 0; _c2 < _arrayTeachers.length; _c2++) if (_arrayTeachers[_c2].id == currentMoreTeacherElement.id) _indexForTeachers = _c2;
-        _starImg.src = "emptystar.png";
+        _starImg.src = "./emptystar.png";
         _arrayRelativeStars[_indexForTeachers].style.visibility = "hidden";
         var indexForFavorites = 0;
         var indexForFavoriteTeachers = 0;
@@ -4915,9 +4915,9 @@ function addToFavorites() {
             indexForRandomMock = _c5;
             break;
           }
-          var _arrayimg = Array.from(document.getElementsByClassName('img-favorites-orange'));
+          var _arrayimg = Array.from(document.getElementsByClassName("img-favorites-orange"));
           _arrayimg[_b].src = randomUserApiMock[indexForRandomMock].picture_large;
-          var _arrayh = Array.from(document.getElementsByClassName('favorites-h1'));
+          var _arrayh = Array.from(document.getElementsByClassName("favorites-h1"));
           var _firstName = "";
           var _lastName = "";
           var _g = 0;
@@ -4932,11 +4932,11 @@ function addToFavorites() {
             _lastName += randomUserApiMock[indexForRandomMock].full_name[_g];
           }
           _arrayh[_b].innerHTML = _firstName + "<br>" + _lastName;
-          var _arraypfirst = Array.from(document.getElementsByClassName('favorites-p-first'));
+          var _arraypfirst = Array.from(document.getElementsByClassName("favorites-p-first"));
           _arraypfirst[_b].innerHTML = randomUserApiMock[indexForRandomMock].course;
-          var _arraypsecond = Array.from(document.getElementsByClassName('favorites-p-second'));
+          var _arraypsecond = Array.from(document.getElementsByClassName("favorites-p-second"));
           _arraypsecond[_b].innerHTML = randomUserApiMock[indexForRandomMock].country;
-          var _arraydiv = Array.from(document.getElementsByName('favorites-div'));
+          var _arraydiv = Array.from(document.getElementsByName("favorites-div"));
           _arraydiv[_b].id = randomUserApiMock[indexForRandomMock].id;
           if (indexForFavoriteTeachers + 1 < _Lab5Mock.favoriteTeachers.length) indexForFavoriteTeachers = indexForFavoriteTeachers + 1;
         }
@@ -4945,15 +4945,15 @@ function addToFavorites() {
           _Lab5Mock.favoriteTeachers.splice(_c6, 1);
           break;
         }
-        var _arraydiv2 = Array.from(document.getElementsByName('favorites-div'));
+        var _arraydiv2 = Array.from(document.getElementsByName("favorites-div"));
         for (var _g2 = currentFavoritesLastElement - 1; _g2 >= currentFavoritesFirstElement - 1; _g2--) if (_g2 > _Lab5Mock.favoriteTeachers.length - 1) {
-          var _arrayimg2 = Array.from(document.getElementsByClassName('img-favorites-orange'));
+          var _arrayimg2 = Array.from(document.getElementsByClassName("img-favorites-orange"));
           _arrayimg2[_g2 - currentFavoritesFirstElement].src = "A.png";
-          var _arrayh2 = Array.from(document.getElementsByClassName('favorites-h1'));
+          var _arrayh2 = Array.from(document.getElementsByClassName("favorites-h1"));
           _arrayh2[_g2 - currentFavoritesFirstElement].innerHTML = "";
-          var _arraypfirst2 = Array.from(document.getElementsByClassName('favorites-p-first'));
+          var _arraypfirst2 = Array.from(document.getElementsByClassName("favorites-p-first"));
           _arraypfirst2[_g2 - currentFavoritesFirstElement].innerHTML = "";
-          var _arraypsecond2 = Array.from(document.getElementsByClassName('favorites-p-second'));
+          var _arraypsecond2 = Array.from(document.getElementsByClassName("favorites-p-second"));
           _arraypsecond2[_g2 - currentFavoritesFirstElement].innerHTML = "";
           _arraydiv2[_g2 - currentFavoritesFirstElement].id = "";
           arrayFavorites[_g2 - currentFavoritesFirstElement].style.visibility = "hidden";
@@ -4971,23 +4971,23 @@ function addToFavorites() {
 }
 function previousFavorites() {
   if (currentFavoritesFirstElement >= 6) {
-    var arraydiv = Array.from(document.getElementsByName('favorites-div'));
+    var arraydiv = Array.from(document.getElementsByName("favorites-div"));
     currentFavoritesFirstElement -= 5;
     currentFavoritesLastElement -= 5;
-    var arrayimg = Array.from(document.getElementsByClassName('img-favorites-orange'));
-    var arrayh1 = Array.from(document.getElementsByClassName('favorites-h1'));
-    var arraypfirst = Array.from(document.getElementsByClassName('favorites-p-first'));
-    var arraypsecond = Array.from(document.getElementsByClassName('favorites-p-second'));
+    var arrayimg = Array.from(document.getElementsByClassName("img-favorites-orange"));
+    var arrayh1 = Array.from(document.getElementsByClassName("favorites-h1"));
+    var arraypfirst = Array.from(document.getElementsByClassName("favorites-p-first"));
+    var arraypsecond = Array.from(document.getElementsByClassName("favorites-p-second"));
     for (var c = 0; c < arraydiv.length; c++) {
-      var _arrayimg3 = Array.from(document.getElementsByClassName('img-favorites-orange'));
+      var _arrayimg3 = Array.from(document.getElementsByClassName("img-favorites-orange"));
       _arrayimg3[c].src = "A.png";
-      var _arrayh3 = Array.from(document.getElementsByClassName('favorites-h1'));
+      var _arrayh3 = Array.from(document.getElementsByClassName("favorites-h1"));
       _arrayh3[c].innerHTML = "";
-      var _arraypfirst3 = Array.from(document.getElementsByClassName('favorites-p-first'));
+      var _arraypfirst3 = Array.from(document.getElementsByClassName("favorites-p-first"));
       _arraypfirst3[c].innerHTML = "";
-      var _arraypsecond3 = Array.from(document.getElementsByClassName('favorites-p-second'));
+      var _arraypsecond3 = Array.from(document.getElementsByClassName("favorites-p-second"));
       _arraypsecond3[c].innerHTML = "";
-      var _arraydiv3 = Array.from(document.getElementsByName('favorites-div'));
+      var _arraydiv3 = Array.from(document.getElementsByName("favorites-div"));
       _arraydiv3[c].id = "";
       _arraydiv3[c].style.visibility = "hidden";
     }
@@ -5017,15 +5017,15 @@ function previousFavorites() {
       }
     }
     for (; g < currentFavoritesLastElement; g++) {
-      var _arrayimg4 = Array.from(document.getElementsByClassName('img-favorites-orange'));
+      var _arrayimg4 = Array.from(document.getElementsByClassName("img-favorites-orange"));
       _arrayimg4[g - currentFavoritesFirstElement].src = "A.png";
-      var _arrayh4 = Array.from(document.getElementsByClassName('favorites-h1'));
+      var _arrayh4 = Array.from(document.getElementsByClassName("favorites-h1"));
       _arrayh4[g - currentFavoritesFirstElement].innerHTML = "";
-      var _arraypfirst4 = Array.from(document.getElementsByClassName('favorites-p-first'));
+      var _arraypfirst4 = Array.from(document.getElementsByClassName("favorites-p-first"));
       _arraypfirst4[g - currentFavoritesFirstElement].innerHTML = "";
-      var _arraypsecond4 = Array.from(document.getElementsByClassName('favorites-p-second'));
+      var _arraypsecond4 = Array.from(document.getElementsByClassName("favorites-p-second"));
       _arraypsecond4[g - currentFavoritesFirstElement].innerHTML = "";
-      var _arraydiv4 = Array.from(document.getElementsByName('favorites-div'));
+      var _arraydiv4 = Array.from(document.getElementsByName("favorites-div"));
       _arraydiv4[g - currentFavoritesFirstElement].id = "";
       _arraydiv4[g - currentFavoritesFirstElement].style.visibility = "hidden";
     }
@@ -5033,23 +5033,23 @@ function previousFavorites() {
 }
 function nextFavorites() {
   if (_Lab5Mock.favoriteTeachers.length > 6) {
-    var arraydiv = Array.from(document.getElementsByName('favorites-div'));
+    var arraydiv = Array.from(document.getElementsByName("favorites-div"));
     currentFavoritesFirstElement += 5;
     currentFavoritesLastElement += 5;
-    var arrayimg = Array.from(document.getElementsByClassName('img-favorites-orange'));
-    var arrayh1 = Array.from(document.getElementsByClassName('favorites-h1'));
-    var arraypfirst = Array.from(document.getElementsByClassName('favorites-p-first'));
-    var arraypsecond = Array.from(document.getElementsByClassName('favorites-p-second'));
+    var arrayimg = Array.from(document.getElementsByClassName("img-favorites-orange"));
+    var arrayh1 = Array.from(document.getElementsByClassName("favorites-h1"));
+    var arraypfirst = Array.from(document.getElementsByClassName("favorites-p-first"));
+    var arraypsecond = Array.from(document.getElementsByClassName("favorites-p-second"));
     for (var c = 0; c < arraydiv.length; c++) {
-      var _arrayimg5 = Array.from(document.getElementsByClassName('img-favorites-orange'));
+      var _arrayimg5 = Array.from(document.getElementsByClassName("img-favorites-orange"));
       _arrayimg5[c].src = "A.png";
-      var _arrayh5 = Array.from(document.getElementsByClassName('favorites-h1'));
+      var _arrayh5 = Array.from(document.getElementsByClassName("favorites-h1"));
       _arrayh5[c].innerHTML = "";
-      var _arraypfirst5 = Array.from(document.getElementsByClassName('favorites-p-first'));
+      var _arraypfirst5 = Array.from(document.getElementsByClassName("favorites-p-first"));
       _arraypfirst5[c].innerHTML = "";
-      var _arraypsecond5 = Array.from(document.getElementsByClassName('favorites-p-second'));
+      var _arraypsecond5 = Array.from(document.getElementsByClassName("favorites-p-second"));
       _arraypsecond5[c].innerHTML = "";
-      var _arraydiv5 = Array.from(document.getElementsByName('favorites-div'));
+      var _arraydiv5 = Array.from(document.getElementsByName("favorites-div"));
       _arraydiv5[c].id = "";
       _arraydiv5[c].style.visibility = "hidden";
     }
@@ -5079,15 +5079,15 @@ function nextFavorites() {
       }
     }
     for (; g < currentFavoritesLastElement; g++) {
-      var _arrayimg6 = Array.from(document.getElementsByClassName('img-favorites-orange'));
+      var _arrayimg6 = Array.from(document.getElementsByClassName("img-favorites-orange"));
       _arrayimg6[g - currentFavoritesFirstElement].src = "A.png";
-      var _arrayh6 = Array.from(document.getElementsByClassName('favorites-h1'));
+      var _arrayh6 = Array.from(document.getElementsByClassName("favorites-h1"));
       _arrayh6[g - currentFavoritesFirstElement].innerHTML = "";
-      var _arraypfirst6 = Array.from(document.getElementsByClassName('favorites-p-first'));
+      var _arraypfirst6 = Array.from(document.getElementsByClassName("favorites-p-first"));
       _arraypfirst6[g - currentFavoritesFirstElement].innerHTML = "";
-      var _arraypsecond6 = Array.from(document.getElementsByClassName('favorites-p-second'));
+      var _arraypsecond6 = Array.from(document.getElementsByClassName("favorites-p-second"));
       _arraypsecond6[g - currentFavoritesFirstElement].innerHTML = "";
-      var _arraydiv6 = Array.from(document.getElementsByName('favorites-div'));
+      var _arraydiv6 = Array.from(document.getElementsByName("favorites-div"));
       _arraydiv6[g - currentFavoritesFirstElement].id = "";
       _arraydiv6[g - currentFavoritesFirstElement].style.visibility = "hidden";
     }
@@ -5130,14 +5130,14 @@ function onFilterChange() {
     }
   } else finalArray = correctArray;
   finalFilterArray = finalArray;
-  var arrayStar = Array.from(document.getElementsByClassName('teachers-div-relative'));
+  var arrayStar = Array.from(document.getElementsByClassName("teachers-div-relative"));
   for (var _i2 = 0; _i2 < arrayStar.length; _i2++) arrayStar[_i2].style.visibility = "hidden";
   for (var _i3 = 0; _i3 < finalFilterArray.length && _i3 < 10; _i3++, currentIndex++) {
-    var arrayimg = Array.from(document.getElementsByClassName('img-teachers-orange'));
-    var arrayh1 = Array.from(document.getElementsByClassName('teachers-h1'));
-    var arraydiv = Array.from(document.getElementsByClassName('teachers-grid-item'));
-    var arraypfirst = Array.from(document.getElementsByClassName('teachers-p-first'));
-    var arraypsecond = Array.from(document.getElementsByClassName('teachers-p-second'));
+    var arrayimg = Array.from(document.getElementsByClassName("img-teachers-orange"));
+    var arrayh1 = Array.from(document.getElementsByClassName("teachers-h1"));
+    var arraydiv = Array.from(document.getElementsByClassName("teachers-grid-item"));
+    var arraypfirst = Array.from(document.getElementsByClassName("teachers-p-first"));
+    var arraypsecond = Array.from(document.getElementsByClassName("teachers-p-second"));
     arrayimg[_i3].src = finalFilterArray[_i3].picture_large;
     var firstName = "";
     var lastName = "";
@@ -5162,7 +5162,7 @@ function onFilterChange() {
     }
   }
   for (; currentIndex < 10; currentIndex++) {
-    var _arraydiv7 = Array.from(document.getElementsByClassName('teachers-grid-item'));
+    var _arraydiv7 = Array.from(document.getElementsByClassName("teachers-grid-item"));
     _arraydiv7[currentIndex].id = "";
     _arraydiv7[currentIndex].style.visibility = "hidden";
   }
@@ -5170,18 +5170,18 @@ function onFilterChange() {
   statisticsFinalArrayToSort = [];
   finalFilterArray.forEach(function (el) {
     finalStatisticsArray.push({
-      "name": el.full_name,
-      "specialty": el.course,
-      "age": el.age,
-      "gender": el.gender,
-      "nationality": el.country
+      name: el.full_name,
+      specialty: el.course,
+      age: el.age,
+      gender: el.gender,
+      nationality: el.country
     });
     statisticsFinalArrayToSort.push({
-      "name": el.full_name,
-      "specialty": el.course,
-      "age": el.age,
-      "gender": el.gender,
-      "nationality": el.country
+      name: el.full_name,
+      specialty: el.course,
+      age: el.age,
+      gender: el.gender,
+      nationality: el.country
     });
   });
   if (finalStatisticsArray.length != 0) {
@@ -5208,7 +5208,7 @@ function sortByName(addObject) {
   if (statisticsCurrentElementID != undefined && statisticsCurrentElementID != thFirst.id) {
     var currentStatisticsElement = document.getElementById(statisticsCurrentElementID);
     currentStatisticsElement.style = "border-bottom: solid 0px  #000; background-color: white;";
-    var images = currentStatisticsElement.getElementsByTagName('img');
+    var images = currentStatisticsElement.getElementsByTagName("img");
     images[0].style.visibility = "hidden";
     images[0].src = "arrowdown.png";
   }
@@ -5216,14 +5216,14 @@ function sortByName(addObject) {
   for (var i = 0; i < finalStatisticsArray.length; i++) statisticsFinalArrayToSort.push(finalStatisticsArray[i]);
   statisticsCurrentElementID = thFirst.id;
   thFirst.style = "border-bottom: solid 3px  #000; background-color: lightgrey;";
-  var arrayimg = Array.from(document.getElementsByClassName('statistics-arrow'));
-  var arrayName = Array.from(document.getElementsByName('td-name'));
-  var arraySpecialty = Array.from(document.getElementsByName('td-specialty'));
-  var arrayAge = Array.from(document.getElementsByName('td-age'));
-  var arrayGender = Array.from(document.getElementsByName('td-gender'));
-  var arrayNationality = Array.from(document.getElementsByName('td-nationality'));
+  var arrayimg = Array.from(document.getElementsByClassName("statistics-arrow"));
+  var arrayName = Array.from(document.getElementsByName("td-name"));
+  var arraySpecialty = Array.from(document.getElementsByName("td-specialty"));
+  var arrayAge = Array.from(document.getElementsByName("td-age"));
+  var arrayGender = Array.from(document.getElementsByName("td-gender"));
+  var arrayNationality = Array.from(document.getElementsByName("td-nationality"));
   if (arrayimg[0].style.visibility == "visible") {
-    if (arrayimg[0].src == "file:///D:/Unik/%D0%92%D0%B5%D0%B1-%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D1%96%D1%97%20%D1%96%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%81%D0%B0%D0%B9%D1%82%D1%96%D0%B2/Lab5/arrowdown.png") {
+    if (arrayimg[0].src == "./arrowdown.png") {
       if (!addObject) {
         arrayimg[0].src = "arrowup.png";
         statisticsFinalArrayToSort.sort(function (a, b) {
@@ -5354,7 +5354,7 @@ function sortBySpecialty(addObject) {
   if (statisticsCurrentElementID != undefined && statisticsCurrentElementID != thSecond.id) {
     var currentStatisticsElement = document.getElementById(statisticsCurrentElementID);
     currentStatisticsElement.style = "border-bottom: solid 0px  #000; background-color: white;";
-    var images = currentStatisticsElement.getElementsByTagName('img');
+    var images = currentStatisticsElement.getElementsByTagName("img");
     images[0].style.visibility = "hidden";
     images[0].src = "arrowdown.png";
   }
@@ -5362,14 +5362,14 @@ function sortBySpecialty(addObject) {
   for (var i = 0; i < finalStatisticsArray.length; i++) statisticsFinalArrayToSort.push(finalStatisticsArray[i]);
   statisticsCurrentElementID = thSecond.id;
   thSecond.style = "border-bottom: solid 3px  #000; background-color: lightgrey;";
-  var arrayimg = Array.from(document.getElementsByClassName('statistics-arrow'));
-  var arrayName = Array.from(document.getElementsByName('td-name'));
-  var arraySpecialty = Array.from(document.getElementsByName('td-specialty'));
-  var arrayAge = Array.from(document.getElementsByName('td-age'));
-  var arrayGender = Array.from(document.getElementsByName('td-gender'));
-  var arrayNationality = Array.from(document.getElementsByName('td-nationality'));
+  var arrayimg = Array.from(document.getElementsByClassName("statistics-arrow"));
+  var arrayName = Array.from(document.getElementsByName("td-name"));
+  var arraySpecialty = Array.from(document.getElementsByName("td-specialty"));
+  var arrayAge = Array.from(document.getElementsByName("td-age"));
+  var arrayGender = Array.from(document.getElementsByName("td-gender"));
+  var arrayNationality = Array.from(document.getElementsByName("td-nationality"));
   if (arrayimg[1].style.visibility == "visible") {
-    if (arrayimg[1].src == "file:///D:/Unik/%D0%92%D0%B5%D0%B1-%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D1%96%D1%97%20%D1%96%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%81%D0%B0%D0%B9%D1%82%D1%96%D0%B2/Lab5/arrowdown.png") {
+    if (arrayimg[1].src == "./arrowdown.png") {
       if (!addObject) {
         arrayimg[1].src = "arrowup.png";
         statisticsFinalArrayToSort.sort(function (a, b) {
@@ -5500,7 +5500,7 @@ function sortByAge(addObject) {
   if (statisticsCurrentElementID != undefined && statisticsCurrentElementID != thThird.id) {
     var currentStatisticsElement = document.getElementById(statisticsCurrentElementID);
     currentStatisticsElement.style = "border-bottom: solid 0px  #000; background-color: white;";
-    var images = currentStatisticsElement.getElementsByTagName('img');
+    var images = currentStatisticsElement.getElementsByTagName("img");
     images[0].style.visibility = "hidden";
     images[0].src = "arrowdown.png";
   }
@@ -5508,14 +5508,14 @@ function sortByAge(addObject) {
   for (var i = 0; i < finalStatisticsArray.length; i++) statisticsFinalArrayToSort.push(finalStatisticsArray[i]);
   statisticsCurrentElementID = thThird.id;
   thThird.style = "border-bottom: solid 3px  #000; background-color: lightgrey;";
-  var arrayimg = Array.from(document.getElementsByClassName('statistics-arrow'));
-  var arrayName = Array.from(document.getElementsByName('td-name'));
-  var arraySpecialty = Array.from(document.getElementsByName('td-specialty'));
-  var arrayAge = Array.from(document.getElementsByName('td-age'));
-  var arrayGender = Array.from(document.getElementsByName('td-gender'));
-  var arrayNationality = Array.from(document.getElementsByName('td-nationality'));
+  var arrayimg = Array.from(document.getElementsByClassName("statistics-arrow"));
+  var arrayName = Array.from(document.getElementsByName("td-name"));
+  var arraySpecialty = Array.from(document.getElementsByName("td-specialty"));
+  var arrayAge = Array.from(document.getElementsByName("td-age"));
+  var arrayGender = Array.from(document.getElementsByName("td-gender"));
+  var arrayNationality = Array.from(document.getElementsByName("td-nationality"));
   if (arrayimg[2].style.visibility == "visible") {
-    if (arrayimg[2].src == "file:///D:/Unik/%D0%92%D0%B5%D0%B1-%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D1%96%D1%97%20%D1%96%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%81%D0%B0%D0%B9%D1%82%D1%96%D0%B2/Lab5/arrowdown.png") {
+    if (arrayimg[2].src == "./arrowdown.png") {
       if (!addObject) {
         arrayimg[2].src = "arrowup.png";
         statisticsFinalArrayToSort.sort(function (a, b) {
@@ -5606,7 +5606,7 @@ function sortByGender(addObject) {
   if (statisticsCurrentElementID != undefined && statisticsCurrentElementID != thFourth.id) {
     var currentStatisticsElement = document.getElementById(statisticsCurrentElementID);
     currentStatisticsElement.style = "border-bottom: solid 0px  #000; background-color: white;";
-    var images = currentStatisticsElement.getElementsByTagName('img');
+    var images = currentStatisticsElement.getElementsByTagName("img");
     images[0].style.visibility = "hidden";
     images[0].src = "arrowdown.png";
   }
@@ -5614,14 +5614,14 @@ function sortByGender(addObject) {
   for (var i = 0; i < finalStatisticsArray.length; i++) statisticsFinalArrayToSort.push(finalStatisticsArray[i]);
   statisticsCurrentElementID = thFourth.id;
   thFourth.style = "border-bottom: solid 3px  #000; background-color: lightgrey;";
-  var arrayimg = Array.from(document.getElementsByClassName('statistics-arrow'));
-  var arrayName = Array.from(document.getElementsByName('td-name'));
-  var arraySpecialty = Array.from(document.getElementsByName('td-specialty'));
-  var arrayAge = Array.from(document.getElementsByName('td-age'));
-  var arrayGender = Array.from(document.getElementsByName('td-gender'));
-  var arrayNationality = Array.from(document.getElementsByName('td-nationality'));
+  var arrayimg = Array.from(document.getElementsByClassName("statistics-arrow"));
+  var arrayName = Array.from(document.getElementsByName("td-name"));
+  var arraySpecialty = Array.from(document.getElementsByName("td-specialty"));
+  var arrayAge = Array.from(document.getElementsByName("td-age"));
+  var arrayGender = Array.from(document.getElementsByName("td-gender"));
+  var arrayNationality = Array.from(document.getElementsByName("td-nationality"));
   if (arrayimg[3].style.visibility == "visible") {
-    if (arrayimg[3].src == "file:///D:/Unik/%D0%92%D0%B5%D0%B1-%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D1%96%D1%97%20%D1%96%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%81%D0%B0%D0%B9%D1%82%D1%96%D0%B2/Lab5/arrowdown.png") {
+    if (arrayimg[3].src == "./arrowdown.png") {
       if (!addObject) {
         arrayimg[3].src = "arrowup.png";
         statisticsFinalArrayToSort.sort(function (a, b) {
@@ -5752,7 +5752,7 @@ function sortByNationality(addObject) {
   if (statisticsCurrentElementID != undefined && statisticsCurrentElementID != thFifth.id) {
     var currentStatisticsElement = document.getElementById(statisticsCurrentElementID);
     currentStatisticsElement.style = "border-bottom: solid 0px  #000; background-color: white;";
-    var images = currentStatisticsElement.getElementsByTagName('img');
+    var images = currentStatisticsElement.getElementsByTagName("img");
     images[0].style.visibility = "hidden";
     images[0].src = "arrowdown.png";
   }
@@ -5760,14 +5760,14 @@ function sortByNationality(addObject) {
   for (var i = 0; i < finalStatisticsArray.length; i++) statisticsFinalArrayToSort.push(finalStatisticsArray[i]);
   statisticsCurrentElementID = thFifth.id;
   thFifth.style = "border-bottom: solid 3px  #000; background-color: lightgrey;";
-  var arrayimg = Array.from(document.getElementsByClassName('statistics-arrow'));
-  var arrayName = Array.from(document.getElementsByName('td-name'));
-  var arraySpecialty = Array.from(document.getElementsByName('td-specialty'));
-  var arrayAge = Array.from(document.getElementsByName('td-age'));
-  var arrayGender = Array.from(document.getElementsByName('td-gender'));
-  var arrayNationality = Array.from(document.getElementsByName('td-nationality'));
+  var arrayimg = Array.from(document.getElementsByClassName("statistics-arrow"));
+  var arrayName = Array.from(document.getElementsByName("td-name"));
+  var arraySpecialty = Array.from(document.getElementsByName("td-specialty"));
+  var arrayAge = Array.from(document.getElementsByName("td-age"));
+  var arrayGender = Array.from(document.getElementsByName("td-gender"));
+  var arrayNationality = Array.from(document.getElementsByName("td-nationality"));
   if (arrayimg[4].style.visibility == "visible") {
-    if (arrayimg[4].src == "file:///D:/Unik/%D0%92%D0%B5%D0%B1-%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D1%96%D1%97%20%D1%96%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%81%D0%B0%D0%B9%D1%82%D1%96%D0%B2/Lab5/arrowdown.png") {
+    if (arrayimg[4].src == "./arrowdown.png") {
       if (!addObject) {
         arrayimg[4].src = "arrowup.png";
         statisticsFinalArrayToSort.sort(function (a, b) {
@@ -6012,11 +6012,11 @@ function checkStatisticsButton() {
 }
 function setStatisticsData() {
   var lastIndex = -1;
-  var arrayName = Array.from(document.getElementsByName('td-name'));
-  var arraySpecialty = Array.from(document.getElementsByName('td-specialty'));
-  var arrayAge = Array.from(document.getElementsByName('td-age'));
-  var arrayGender = Array.from(document.getElementsByName('td-gender'));
-  var arrayNationality = Array.from(document.getElementsByName('td-nationality'));
+  var arrayName = Array.from(document.getElementsByName("td-name"));
+  var arraySpecialty = Array.from(document.getElementsByName("td-specialty"));
+  var arrayAge = Array.from(document.getElementsByName("td-age"));
+  var arrayGender = Array.from(document.getElementsByName("td-gender"));
+  var arrayNationality = Array.from(document.getElementsByName("td-nationality"));
   if (statisticsFinalArrayToSort.length == 0) lastIndex = 0;
   for (var i = (currentStatisticsPage - 1) * 10; i < statisticsFinalArrayToSort.length && i < currentStatisticsPage * 10; i++) {
     if (i == statisticsFinalArrayToSort.length - 1) lastIndex = i - (currentStatisticsPage - 1) * 10 + 1;
@@ -6047,23 +6047,23 @@ function searchOnChange() {
     var secondWord = "";
     var thirdWord = "";
     for (; i < teacherSearch.value.length; i++) {
-      if (teacherSearch.value[i] != ',' && teacherSearch.value[i] != '.' && teacherSearch.value[i] != ' ') firstWord += teacherSearch.value[i];else {
+      if (teacherSearch.value[i] != "," && teacherSearch.value[i] != "." && teacherSearch.value[i] != " ") firstWord += teacherSearch.value[i];else {
         i++;
-        while (teacherSearch.value[i] == ',' || teacherSearch.value[i] == '.' || teacherSearch.value[i] == ' ') i++;
+        while (teacherSearch.value[i] == "," || teacherSearch.value[i] == "." || teacherSearch.value[i] == " ") i++;
         break;
       }
     }
     for (; i < teacherSearch.value.length; i++) {
-      if (teacherSearch.value[i] != ',' && teacherSearch.value[i] != '.' && teacherSearch.value[i] != ' ') secondWord += teacherSearch.value[i];else {
+      if (teacherSearch.value[i] != "," && teacherSearch.value[i] != "." && teacherSearch.value[i] != " ") secondWord += teacherSearch.value[i];else {
         i++;
-        while (teacherSearch.value[i] == ',' || teacherSearch.value[i] == '.' || teacherSearch.value[i] == ' ') i++;
+        while (teacherSearch.value[i] == "," || teacherSearch.value[i] == "." || teacherSearch.value[i] == " ") i++;
         break;
       }
     }
     for (; i < teacherSearch.value.length; i++) {
-      if (teacherSearch.value[i] != ',' && teacherSearch.value[i] != '.' && teacherSearch.value[i] != ' ') thirdWord += teacherSearch.value[i];else {
+      if (teacherSearch.value[i] != "," && teacherSearch.value[i] != "." && teacherSearch.value[i] != " ") thirdWord += teacherSearch.value[i];else {
         i++;
-        while (teacherSearch.value[i] == ',' || teacherSearch.value[i] == '.' || teacherSearch.value[i] == ' ') i++;
+        while (teacherSearch.value[i] == "," || teacherSearch.value[i] == "." || teacherSearch.value[i] == " ") i++;
         break;
       }
     }
@@ -6100,18 +6100,18 @@ function searchOnChange() {
   statisticsFinalArrayToSort = [];
   finalSearchArray.forEach(function (el) {
     finalStatisticsArray.push({
-      "name": el.full_name,
-      "specialty": el.course,
-      "age": el.age,
-      "gender": el.gender,
-      "nationality": el.country
+      name: el.full_name,
+      specialty: el.course,
+      age: el.age,
+      gender: el.gender,
+      nationality: el.country
     });
     statisticsFinalArrayToSort.push({
-      "name": el.full_name,
-      "specialty": el.course,
-      "age": el.age,
-      "gender": el.gender,
-      "nationality": el.country
+      name: el.full_name,
+      specialty: el.course,
+      age: el.age,
+      gender: el.gender,
+      nationality: el.country
     });
   });
   if (finalStatisticsArray.length != 0) {
@@ -6130,7 +6130,7 @@ function searchOnChange() {
   onFilterChange();
 }
 function isNumeric(str) {
-  if (typeof str != "string") return false; // we only process strings!  
+  if (typeof str != "string") return false; // we only process strings!
   return !isNaN(str) &&
   // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
   !isNaN(parseFloat(str)); // ...and ensure strings of whitespace fail
@@ -6169,22 +6169,22 @@ function addNewTeacher() {
     break;
   }
   var newObject = [{
-    "full_name": addTeacherName.value,
-    "course": addTeacherSpecialty.value,
-    "country": addTeacherCountry.value,
-    "city": addTeacherCity.value,
-    "email": addTeacherEmail.value,
-    "phone": addTeacherPhone.value,
-    "b_date": addTeacherDate.value,
-    "gender": sexValue,
-    "bg_color": addTeacherColor.value,
-    "note": addTeacherNotes.value
+    full_name: addTeacherName.value,
+    course: addTeacherSpecialty.value,
+    country: addTeacherCountry.value,
+    city: addTeacherCity.value,
+    email: addTeacherEmail.value,
+    phone: addTeacherPhone.value,
+    b_date: addTeacherDate.value,
+    gender: sexValue,
+    bg_color: addTeacherColor.value,
+    note: addTeacherNotes.value
   }];
   if (newObject[0].full_name != "") Validated = newObject.every(function (obj) {
-    return typeof obj.full_name === 'string' && obj.full_name[0] === obj.full_name[0].toUpperCase();
+    return typeof obj.full_name === "string" && obj.full_name[0] === obj.full_name[0].toUpperCase();
   });else Validated = false;
   if (newObject[0].city != "") Validated = newObject.every(function (obj) {
-    return typeof obj.city === 'string' && obj.city[0] === obj.city[0].toUpperCase();
+    return typeof obj.city === "string" && obj.city[0] === obj.city[0].toUpperCase();
   });else Validated = false;
   Validated = newObject.every(function (obj) {
     return numberValidation.test(obj.phone);
@@ -6197,28 +6197,28 @@ function addNewTeacher() {
   var randomPicture = "https://randomuser.me/api/portraits/men/" + Math.floor(Math.random()) * 200 + ".jpg";
   if (getAge(addTeacherDate.value) < 4) Validated = false;
   var finalObject = {
-    "gender": sexValue,
-    "title": "",
-    "full_name": newObject[0].full_name,
-    "city": newObject[0].city,
-    "country": newObject[0].country,
-    "postcode": "",
-    "coordinates": {
-      "latitude": "",
-      "longitude": ""
+    gender: sexValue,
+    title: "",
+    full_name: newObject[0].full_name,
+    city: newObject[0].city,
+    country: newObject[0].country,
+    postcode: "",
+    coordinates: {
+      latitude: "",
+      longitude: ""
     },
-    "timezone": {
-      "offset": "",
-      "description": ""
+    timezone: {
+      offset: "",
+      description: ""
     },
-    "b_day": newObject[0].b_date,
-    "age": getAge(addTeacherDate.value),
-    "id": makeid(10),
-    "picture_large": randomPicture,
-    "favorite": "",
-    "course": newObject[0].course,
-    "bg_color": newObject[0].bg_color,
-    "note": newObject[0].note
+    b_day: newObject[0].b_date,
+    age: getAge(addTeacherDate.value),
+    id: makeid(10),
+    picture_large: randomPicture,
+    favorite: "",
+    course: newObject[0].course,
+    bg_color: newObject[0].bg_color,
+    note: newObject[0].note
   };
   if (Validated) {
     randomUserApiMock.push(finalObject);
@@ -6229,30 +6229,30 @@ function addNewTeacher() {
     if (sortNationality) sortByNationality(true);
     searchOnChange();
     onFilterChange();
-    var _axios = require('axios');
-    _axios.post('http://localhost:3000/users', {
-      "gender": sexValue,
-      "title": "",
-      "full_name": newObject[0].full_name,
-      "city": newObject[0].city,
-      "country": newObject[0].country,
-      "postcode": "",
-      "coordinates": {
-        "latitude": "",
-        "longitude": ""
+    var _axios = require("axios");
+    _axios.post("http://localhost:3000/users", {
+      gender: sexValue,
+      title: "",
+      full_name: newObject[0].full_name,
+      city: newObject[0].city,
+      country: newObject[0].country,
+      postcode: "",
+      coordinates: {
+        latitude: "",
+        longitude: ""
       },
-      "timezone": {
-        "offset": "",
-        "description": ""
+      timezone: {
+        offset: "",
+        description: ""
       },
-      "b_day": newObject[0].b_date,
-      "age": getAge(addTeacherDate.value),
-      "id": makeid(10),
-      "picture_large": randomPicture,
-      "favorite": "",
-      "course": newObject[0].course,
-      "bg_color": newObject[0].bg_color,
-      "note": newObject[0].note
+      b_day: newObject[0].b_date,
+      age: getAge(addTeacherDate.value),
+      id: makeid(10),
+      picture_large: randomPicture,
+      favorite: "",
+      course: newObject[0].course,
+      bg_color: newObject[0].bg_color,
+      note: newObject[0].note
     }).then(function (resp) {
       console.log(resp.data);
     }).catch(function (error) {
@@ -6265,25 +6265,25 @@ function validateObjects() {
   var numberValidation = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
   var emailValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   Validated = randomUserApiMock.every(function (obj) {
-    return typeof obj.full_name === 'string' && obj.full_name[0] === obj.full_name[0].toUpperCase();
+    return typeof obj.full_name === "string" && obj.full_name[0] === obj.full_name[0].toUpperCase();
   });
   Validated = randomUserApiMock.every(function (obj) {
-    return typeof obj.gender === 'string' && obj.gender[0] === obj.gender[0].toUpperCase();
+    return typeof obj.gender === "string" && obj.gender[0] === obj.gender[0].toUpperCase();
   });
   Validated = randomUserApiMock.every(function (obj) {
-    return typeof obj.note === 'string' && obj.note[0] === obj.note[0].toUpperCase();
+    return typeof obj.note === "string" && obj.note[0] === obj.note[0].toUpperCase();
   });
   Validated = randomUserApiMock.every(function (obj) {
-    return typeof obj.state === 'string' && obj.state[0] === obj.state[0].toUpperCase();
+    return typeof obj.state === "string" && obj.state[0] === obj.state[0].toUpperCase();
   });
   Validated = randomUserApiMock.every(function (obj) {
-    return typeof obj.city === 'string' && obj.city[0] === obj.city[0].toUpperCase();
+    return typeof obj.city === "string" && obj.city[0] === obj.city[0].toUpperCase();
   });
   Validated = randomUserApiMock.every(function (obj) {
-    return typeof obj.country === 'string' && obj.country[0] === obj.country[0].toUpperCase();
+    return typeof obj.country === "string" && obj.country[0] === obj.country[0].toUpperCase();
   });
   Validated = randomUserApiMock.every(function (obj) {
-    return typeof obj.age === 'number';
+    return typeof obj.age === "number";
   });
   Validated = randomUserApiMock.every(function (obj) {
     return numberValidation.test(obj.phone);
@@ -6294,8 +6294,8 @@ function validateObjects() {
   return Validated;
 }
 function makeid(length) {
-  var result = '';
-  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var result = "";
+  var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   var charactersLength = characters.length;
   var counter = 0;
   while (counter < length) {
@@ -6334,32 +6334,32 @@ function _getUsers() {
           }).then(function (data) {
             for (var i = 0; i < data.results.length; i++) {
               var newObject = {
-                "gender": "",
-                "title": "",
-                "full_name": "",
-                "city": "",
-                "state": "",
-                "country": "",
-                "postcode": 1,
-                "coordinates": {
-                  "latitude": "",
-                  "longitude": ""
+                gender: "",
+                title: "",
+                full_name: "",
+                city: "",
+                state: "",
+                country: "",
+                postcode: 1,
+                coordinates: {
+                  latitude: "",
+                  longitude: ""
                 },
-                "timezone": {
-                  "offset": "",
-                  "description": ""
+                timezone: {
+                  offset: "",
+                  description: ""
                 },
-                "email": "",
-                "b_date": "",
-                "age": 46,
-                "phone": "",
-                "picture_large": "",
-                "picture_thumbnail": "",
-                "id": "",
-                "favorite": "",
-                "course": "",
-                "bg_color": "",
-                "note": ""
+                email: "",
+                b_date: "",
+                age: 46,
+                phone: "",
+                picture_large: "",
+                picture_thumbnail: "",
+                id: "",
+                favorite: "",
+                course: "",
+                bg_color: "",
+                note: ""
               };
               newObject.gender = data.results[i].gender;
               newObject.title = data.results[i].name.title;
